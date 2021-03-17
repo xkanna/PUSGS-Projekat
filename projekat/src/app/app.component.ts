@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projekat';
+  title = 'Title/dodati u ovaj td da float right oko user profile i login';
 }

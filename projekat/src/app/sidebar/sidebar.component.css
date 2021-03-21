@@ -1,0 +1,69 @@
+.sidebar-menu {
+    position: absolute;
+    background-color: #ededed;
+    height: 93.2vh;
+    left: 0;
+}
+
+.sidebar-menu__top__links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu__top__links li:hover {
+    background-color: black;
+}
+
+.sidebar-menu__top__links li:hover i {
+    color: white;
+}
+
+.sidebar-menu__top__links li:hover span {
+    color: white;
+} 
+
+.sidebar-menu__top__links a {
+    display: inline-block;
+    height: 51.88px;
+    padding: 13px 0;
+}
+
+.sidebar-menu__top__links div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sidebar-menu__top__links .triger {
+    width: 51.8px;
+    text-align: center;
+}
+
+.sidebar-menu__top__links .triger i {
+    font-size: 25px;
+}
+
+.sidebar-menu__top__links .data {
+    display: none;
+    width: 150px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.sidebar-menu__top__links .data.show {
+    display: inline-block;
+}
+
+.sidebar-menu__top__links li:hover .data {
+    display: inline-block;
+    position: absolute;
+    background-color: black;
+    padding: 14.5px;
+    transform: translate(0, -13px);
+}
+
+.sidebar-menu__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

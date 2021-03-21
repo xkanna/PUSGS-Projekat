@@ -1,21 +1,27 @@
-<table>
-  <tr>
-    <td rowspan="2">
-      <ul>
-        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-        <li><a routerLink="/incident-browser" routerLinkActive="active">Incident Browser</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
-      </ul>
-    </td>
-    <td>
-      <h1>{{ title }}</h1>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <h2>Routed here</h2>
-      <router-outlet></router-outlet>
-    </td>
-  </tr>
-</table>
+<app-navigation></app-navigation>
+<app-sidebar></app-sidebar>
+<div class="main">
+  
+  <h1>{{ title }}</h1>
+  <table>
+    <tr>
+      <td rowspan="2">
+        
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Routed here</h2>
+        <ul>
+          <li><a href="contact.asp">Contact</a></li>
+          <li><a href="about.asp">About</a></li>
+        </ul>
+        <router-outlet></router-outlet>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+

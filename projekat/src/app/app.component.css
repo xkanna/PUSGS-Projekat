@@ -1,3 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body, p, h1, h2, h3, h4, h5 {
+  margin: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.main {
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 20px auto 0;
+}
 
 table {
   margin: 0;

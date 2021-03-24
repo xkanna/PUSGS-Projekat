@@ -1,27 +1,8 @@
-<app-navigation></app-navigation>
-<app-sidebar></app-sidebar>
 <div class="main">
-  
-  <h1>{{ title }}</h1>
-  <table>
-    <tr>
-      <td rowspan="2">
-        
-      </td>
-      <td>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h2>Routed here</h2>
-        <ul>
-          <li><a href="contact.asp">Contact</a></li>
-          <li><a href="about.asp">About</a></li>
-        </ul>
-        <router-outlet></router-outlet>
-      </td>
-    </tr>
-  </table>
-  
+  <app-navigation [title]="currentTitle"></app-navigation>
+  <app-sidebar></app-sidebar>
+  <div class="router">
+    <router-outlet></router-outlet>
+  </div>  
 </div>
 

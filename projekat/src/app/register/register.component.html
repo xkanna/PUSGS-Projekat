@@ -1,0 +1,68 @@
+<div>
+    <h2>New User Details</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div>
+            <input type="text" placeholder="Username" formControlName="username">
+            <div *ngIf="registerForm.controls.username.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="Password" formControlName="password">
+            <div *ngIf="registerForm.controls.password.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="Repeat Password" formControlName="repeat">
+            <div *ngIf="registerForm.controls.repeat.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="Email" formControlName="email">
+            <div *ngIf="registerForm.controls.email.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="First Name" formControlName="firstName">
+            <div *ngIf="registerForm.controls.firstName.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="Last Name" formControlName="lastName">
+            <div *ngIf="registerForm.controls.lastName.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="Address" formControlName="address">
+            <div *ngIf="registerForm.controls.address.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <input type="date" formControlName="date">
+            <div *ngIf="registerForm.controls.date.invalid">
+                Please enter valid username
+            </div>
+        </div>
+        <div>
+            <select formControlName="role" [(ngModel)]="selectedRole">
+                <option value="" disabled selected hidden>Role</option>
+                <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+              </select>
+        </div>
+        <div *ngIf="selectedRole=='Crew Member'">
+            <select formControlName="crew" [(ngModel)]="selectedCrew">
+                <option value="" disabled selected hidden>Crew</option>
+                <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
+              </select>
+        </div>
+        <div>
+            <button [disabled]="!registerForm.valid" type="submit">Register</button>
+        </div>
+    </form>
+</div>

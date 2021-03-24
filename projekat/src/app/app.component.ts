@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Title/dodati u ovaj td da float right oko user profile i login';
+  currentTitle = "Home";
+
+  constructor(private router: Router) {
+    router.events.subscribe((val) => {
+      if(val instanceof NavigationEnd){
+        this.currentTitle=val.url;
+        this.currentTitle = this.currentTitle.split('-').join(' ');
+        this.currentTitle = this.currentTitle.split('/')[1];
+      }
+  });
+  }
 }

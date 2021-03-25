@@ -17,7 +17,7 @@ import { RegisterComponent } from './register/register.component';
     IncidentBrowserComponent,
     NavigationComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

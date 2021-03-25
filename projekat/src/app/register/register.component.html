@@ -8,19 +8,19 @@
             </div>
         </div>
         <div>
-            <input type="text" placeholder="Password" formControlName="password">
+            <input type="password" placeholder="Password" formControlName="password">
             <div *ngIf="registerForm.controls.password.invalid">
                 Please enter valid username
             </div>
         </div>
         <div>
-            <input type="text" placeholder="Repeat Password" formControlName="repeat">
+            <input type="password" placeholder="Repeat Password" formControlName="repeat">
             <div *ngIf="registerForm.controls.repeat.invalid">
                 Please enter valid username
             </div>
         </div>
         <div>
-            <input type="text" placeholder="Email" formControlName="email">
+            <input type="email" placeholder="Email" formControlName="email">
             <div *ngIf="registerForm.controls.email.invalid">
                 Please enter valid username
             </div>
@@ -60,6 +60,11 @@
                 <option value="" disabled selected hidden>Crew</option>
                 <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
               </select>
+        </div>
+        <div>
+            <input type='file' (change)="onSelectFile($event)" formControlName="image">
+            <br/>
+            <img [src]="url" height="200"> 
         </div>
         <div>
             <button [disabled]="!registerForm.valid" type="submit">Register</button>

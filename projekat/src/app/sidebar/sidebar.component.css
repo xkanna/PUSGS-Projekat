@@ -10,7 +10,7 @@
   
   a {
     text-decoration: none;
-    color: black;
+    color: #015352;
   }
   
   body, p, h1, h2, h3, h4, h5 {
@@ -18,10 +18,13 @@
   }
 
 .sidebar-menu {
-    position: absolute;
-    background-color: #ededed;
+    position: fixed;
+    background-color: #ffb336;
     height: 93.2vh;
     left: 0;
+    top: 61px;
+    
+    display: inline;
 }
 
 .sidebar-menu__top__links {
@@ -31,15 +34,15 @@
 }
 
 .sidebar-menu__top__links li:hover {
-    background-color: black;
+    background-color: #ffb336;
 }
 
 .sidebar-menu__top__links li:hover i {
-    color: white;
+    color: #fd7d00;
 }
 
 .sidebar-menu__top__links li:hover span {
-    color: white;
+    color: #07171e;
 } 
 
 .sidebar-menu__top__links a {
@@ -76,13 +79,15 @@
 .sidebar-menu__top__links li:hover .data {
     display: inline-block;
     position: absolute;
-    background-color: black;
+    background-color: #ffb336;
     padding: 14.5px;
-    transform: translate(0, -13px);
+    transform: translate(0, -13px);  
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .sidebar-menu__bottom {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
 }

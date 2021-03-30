@@ -1,93 +1,100 @@
 <body>
-<div class="registration" >
-    <div class="column">
-    <h2 class="registration-header">New User Details</h2>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    
-    
-        <div class="registration-first_name">
-            <input type="text" placeholder="First Name" formControlName="firstName">
-            <div *ngIf="registerForm.controls.firstName.invalid">
-                Please enter valid username
-            </div>
-        </div> 
 
-        <div class="registration-last_name">
-            <input type="text" placeholder="Last Name" formControlName="lastName">
-            <div *ngIf="registerForm.controls.lastName.invalid">
-                Please enter valid username
-            </div>
-        </div>
-        <div class="registration-address">
-            <input type="text" placeholder="Address" formControlName="address">
-            <div *ngIf="registerForm.controls.address.invalid">
-                Please enter valid username
-            </div>
+    <div class="registration" >
+
+        <div class="column">
+
+            <h2 class="registration-header">New User Details</h2>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            
+            
+                <div class="registration-first_name">
+                    <input type="text" placeholder="First Name" formControlName="firstName">
+                    <div *ngIf="registerForm.controls.firstName.invalid">
+                        Please enter valid username
+                    </div>
+                </div> 
+
+                <div class="registration-last_name">
+                    <input type="text" placeholder="Last Name" formControlName="lastName">
+                    <div *ngIf="registerForm.controls.lastName.invalid">
+                        Please enter valid username
+                    </div>
+                </div>
+
+                <div class="registration-address">
+                    <input type="text" placeholder="Address" formControlName="address">
+                    <div *ngIf="registerForm.controls.address.invalid">
+                        Please enter valid username
+                    </div>
+                </div>
+                
+                <div class="registration-username">          
+                    <input type="text" placeholder="Username" formControlName="username">
+                    <div *ngIf="registerForm.controls.username.invalid">
+                        Please enter valid username
+                    </div>
+                </div>
+
+                <div class="registration-email">
+                    <input type="text" placeholder="Email" formControlName="email">
+                    <div *ngIf="registerForm.controls.email.invalid">
+                        Please enter valid username
+                    </div>
+                </div>
+
+                <div class="registration-password">
+                    <input type="password" placeholder="Password" formControlName="password">
+                    <div *ngIf="registerForm.controls.password.invalid">
+                        Please enter valid password
+                    </div>
+                </div>
+
+                <div class="registration-password">
+                    <input type="password" placeholder="Repeat Password" formControlName="repeat">
+                    <div *ngIf="registerForm.controls.repeat.invalid">
+                        Please enter valid username
+                    </div>
+                </div>        
+            
+                <div class="registration-date">
+                    <input type="date" formControlName="date">
+                    <div *ngIf="registerForm.controls.date.invalid">
+                        Please enter valid username
+                    </div>
+                </div>
+
+                <div class="registration-role">
+                    <select formControlName="role" [(ngModel)]="selectedRole">
+                        <option value="" disabled selected hidden>Role</option>
+                        <option *ngFor="let r of roles" [value]="r">{{r}}</option>
+                    </select>
+                </div>
+
+                <div *ngIf="selectedRole=='Crew Member'" class="registration-crew">
+                    <select formControlName="crew" [(ngModel)]="selectedCrew">
+                        <option value="" disabled selected hidden>Crew</option>
+                        <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
+                    </select>
+                </div>
+
+                <div class="registration-file"> 
+                    <input type='file' (change)="onSelectFile($event)" formControlName="image">
+                    <br/>
+                    <img [src]="url" height="200"> 
+                </div>
+            
+
+                <div class="registration-submit">
+                    <button [disabled]="!registerForm.valid" type="register">Register</button>
+                </div>
+            
+            
+            </form>
+
         </div>
         
-        <div class="registration-username">          
-            <input type="text" placeholder="Username" formControlName="username">
-            <div *ngIf="registerForm.controls.username.invalid">
-                Please enter valid username
-            </div>
-        </div>
+    </div>
 
-        <div class="registration-email">
-            <input type="text" placeholder="Email" formControlName="email">
-            <div *ngIf="registerForm.controls.email.invalid">
-                Please enter valid username
-            </div>
-        </div>
-
-        <div class="registration-password">
-            <input type="password" placeholder="Password" formControlName="password">
-            <div *ngIf="registerForm.controls.password.invalid">
-                 Please enter valid password
-            </div>
-        </div>
-
-        <div class="registration-password">
-            <input type="password" placeholder="Repeat Password" formControlName="repeat">
-            <div *ngIf="registerForm.controls.repeat.invalid">
-                Please enter valid username
-            </div>
-        </div>        
-    <!--/div>
-    <div class="column"-->
-               <div class="registration-date">
-            <input type="date" formControlName="date">
-            <div *ngIf="registerForm.controls.date.invalid">
-                Please enter valid username
-            </div>
-        </div>
-
-        <div class="registration-role">
-            <select formControlName="role" [(ngModel)]="selectedRole">
-                <option value="" disabled selected hidden>Role</option>
-                <option *ngFor="let r of roles" [value]="r">{{r}}</option>
-              </select>
-        </div>
-
-        <div *ngIf="selectedRole=='Crew Member'" class="registration-crew">
-            <select formControlName="crew" [(ngModel)]="selectedCrew">
-                <option value="" disabled selected hidden>Crew</option>
-                <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
-              </select>
-        </div>
-
-        <div class="registration-file"> 
-            <input type='file' (change)="onSelectFile($event)" formControlName="image">
-            <br/>
-            <img [src]="url" height="200"> 
-        </div>
-    
-
-        <div class="registration-submit">
-            <button [disabled]="!registerForm.valid" type="register">Register</button>
-        </div>
-    
-    
-    </form>
-</div>
-</div>
 </body>

@@ -1,82 +1,98 @@
-.clearfix:after {
+.clearfix:after 
+{
     content: '';
     display: table;
     clear: both
   }
   
-  * {
+  * 
+  {
     box-sizing: border-box;
   }
   
-  a {
+  a 
+  {
     text-decoration: none;
     color: #015352;
   }
   
-  body, p, h1, h2, h3, h4, h5 {
+  body, p, h1, h2, h3, h4, h5 
+  {
     margin: 0;
   }
 
-.sidebar-menu {
+.sidebar-menu 
+{
     position: fixed;
     background-color: #ffb336;
     height: 93.2vh;
     left: 0;
     top: 61px;
-    
+    padding-left: 8px;  
     display: inline;
 }
 
-.sidebar-menu__top__links {
+.sidebar-menu__top__links 
+{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.sidebar-menu__top__links li:hover {
+.sidebar-menu__top__links li:hover 
+{
     background-color: #ffb336;
 }
 
-.sidebar-menu__top__links li:hover i {
+.sidebar-menu__top__links li:hover i 
+{
     color: #fd7d00;
 }
 
-.sidebar-menu__top__links li:hover span {
+.sidebar-menu__top__links li:hover span 
+{
     color: #07171e;
 } 
 
-.sidebar-menu__top__links a {
+.sidebar-menu__top__links a 
+{
     display: inline-block;
     height: 51.88px;
     padding: 13px 0;
 }
 
-.sidebar-menu__top__links div {
+.sidebar-menu__top__links div 
+{
     display: inline-block;
     vertical-align: middle;
 }
 
-.sidebar-menu__top__links .triger {
+.sidebar-menu__top__links .triger 
+{
     width: 51.8px;
     text-align: center;
 }
 
-.sidebar-menu__top__links .triger i {
+.sidebar-menu__top__links .triger i 
+{
     font-size: 25px;
 }
 
-.sidebar-menu__top__links .data {
+.sidebar-menu__top__links .data 
+{
     display: none;
     width: 150px;
     padding-left: 10px;
     font-size: 20px;
 }
 
-.sidebar-menu__top__links .data.show {
+.sidebar-menu__top__links .data.show 
+{
     display: inline-block;
 }
 
-.sidebar-menu__top__links li:hover .data {
+.sidebar-menu__top__links li:hover .data 
+{
     display: inline-block;
     position: absolute;
     background-color: #ffb336;
@@ -86,8 +102,10 @@
     border-bottom-right-radius: 25px;
 }
 
-.sidebar-menu__bottom {
+.sidebar-menu__bottom 
+{
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
     left: 0;
+    padding-left: 8px;
 }

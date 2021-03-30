@@ -1,41 +1,43 @@
-.clearfix:after {
+.clearfix:after 
+{
     content: '';
     display: table;
     clear: both
-  }
+}
   
-  * {
+* 
+{
     box-sizing: border-box;
-  }
+}
   
-  a {
+a  
+{
     text-decoration: none;
     color: #fecf58; /*account settings*/
-  }
+}
   
-  body, p, h1, h2, h3, h4, h5 {
-    margin: 0;
-    
-  }
+body, p, h1, h2, h3, h4, h5 
+{
+    margin: 0;   
+}
 
-
-.header {
-    
+.header 
+{    
     padding: 10px 40px;
     border-bottom: 1px solid #113d3c; /*?*/
     background-color: #07171e; /*top bar*/
     position: fixed;
-    width: 100%;
-    
+    width: 100%;    
 }
 
-
-.main-header__left {
+.main-header__left 
+{
     float: left;
     padding-left: 30px;
 }
 
-.main-header__right {
+.main-header__right 
+{
     float: right;
     color: #fecf58
 }
@@ -49,6 +51,7 @@
 {
     color: #ffb336;
 }
+
 .main-header__left div {
     display: inline-block; 
 }
@@ -58,76 +61,87 @@
     vertical-align: middle;
 }
 
-.toogle-sidebar {
+.toogle-sidebar 
+{
     position: fixed;
     left: 0;
     top: 0;
     background-color: #07171e; /*dugme u gornjem cosku*/
-    padding: 19px 15px;
-    
+    padding: 19px 19px;   
 }
 
-.toogle-sidebar:hover {
+.toogle-sidebar:hover 
+{
     cursor: pointer;
     background-color: #113d3c; /*boja pozadine dugmeta prilikom prelaska preko njega*/
 }
 
-.toogle-sidebar:hover i {
-    color: #ffb336; /*boja linija dugmeta u gornjem levom uglu*/
-    
+.toogle-sidebar:hover i 
+{
+    color: #ffb336; /*boja linija dugmeta u gornjem levom uglu*/  
 }
 
-.toogle-sidebar i {
+.toogle-sidebar i 
+{
     color: #ffb336; /*?*/
     font-size: 25px;
-    
 }
 
-.page-title {
+.page-title 
+{
     padding-left: 10px;
 }
 
-.page-title p {
+.page-title p 
+{
     text-transform: uppercase;
     margin-top: 9px;
     margin-bottom: 9px;
     font-size: 20px;
 }
 
-.main-header__account-options a {
+.main-header__account-options a 
+{
     border: 1px solid #ffb336; /*kruzic oko login dugmeta*/
     border-radius: 50%;
     padding: 9px 11px;
 }
 
-.main-header__account-options i {
+.main-header__account-options i 
+{
     font-size: 13px;
 }
 
-.main-header__account-options:hover a {
+.main-header__account-options:hover a 
+{
     background-color: #113d3c; /*boja kruga*/
 }
 
-.main-header__account-options:hover i {
+.main-header__account-options:hover i 
+{
     color: #ffb336; /*?*/
 }
 
-.main-header__account {
+.main-header__account 
+{
     text-align: right;
     padding-right: 15px;
 }
 
-.main-header__account p {
+.main-header__account p 
+{
     font-size: 17px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-.main-header__account a {
+.main-header__account a 
+{
     display: inline-block;
     margin-top: 3px;
 }
 
-.main-header__account a:hover {
+.main-header__account a:hover 
+{
     text-decoration: underline;
 }

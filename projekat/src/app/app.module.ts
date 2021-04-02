@@ -9,6 +9,7 @@ import { IncidentBrowserComponent } from './incident-browser/incident-browser.co
 import { NavigationComponent } from './navigation/navigation.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
     NavigationComponent,
     SidebarComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,11 +12,11 @@ body
     margin: 0;
     display: grid;
     place-items: center;   
-    width: 1500px;   
-    padding-top: 5%; 
-    padding-bottom: 5%;
-    overflow-y: scroll;   
-    background-color: #07171e;   
+    width: auto;
+    position: fixed; 
+    top: 60%;  
+    left: 50%;
+    transform: translate(-50%, -60%);   
 }
 
 .registration

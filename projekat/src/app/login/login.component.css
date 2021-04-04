@@ -38,7 +38,7 @@ body
     width: auto;
     position: fixed; 
     top: 80%;  
-    left: 60%;
+    left: 50%;
     transform: translate(-50%, -60%); 
     
 
@@ -233,8 +233,8 @@ input[type=submit] {
     color: white;
     cursor: pointer;
   }
-
-input[type=submit]:hover {
+  
+  input[type=submit]:hover {
     background-color: #45a049;
   }
 

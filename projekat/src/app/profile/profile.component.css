@@ -1,0 +1,113 @@
+p, h1, h2, h3, h4, h5 
+{
+    margin: 0;
+    font-family: sans-serif;
+    color: #015352;
+    padding: 20px;   
+}
+
+body 
+{
+    height: auto;   
+    margin: 0;
+    display: grid;
+    place-items: center;   
+    width: auto;
+    position: fixed; 
+    top: 80%;  
+    left: 50%;
+    transform: translate(-50%, -60%);   
+
+    
+    overflow-y: scroll;
+    overflow: hidden;
+
+    background-color: #07171e;
+    text-align:center;
+    position:absolute;
+    
+}
+
+.registration
+{   
+    background: linear-gradient(to right, #015352, #ffb336, #fc9d02);
+    margin: 0;
+    width: 600px; 
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    line-height: 60px;
+    align-self: center;
+    border-radius: 25px;
+    flex-direction: column;
+    
+   
+}
+
+.registration-header
+{
+    align-content:space-around;
+}
+
+/*type*/
+input[type="text"]
+{
+    width:400px;
+    height: 30px; 
+    color: #ffb336;
+    border: none;
+    border-bottom: 1px solid #113d3c;
+    background: transparent; 
+    font-weight: bold;   
+}
+
+input[type="password"]
+{
+    width:400px;
+    height: 30px;  
+    color: #ffb336; 
+    border: none;
+    border-bottom: 1px solid #113d3c;
+    background: transparent; 
+    font-weight: bold;
+}
+
+input[type="date"]
+{
+    width:400px;
+    height: 30px;   
+    border: none;
+    color: #ffb336;
+    border-bottom: 1px solid #113d3c;
+    background: transparent;
+    color: #686b6b;
+    font-weight: bold;    
+}
+
+input[type="register"]
+{
+    width:400px;
+    height: 30px; 
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;  
+}
+
+
+.column {   
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    background: #07171e;
+    color: #113d3c;       
+}
+  
+.login
+{
+    background: #07171e;
+}
+
+
+
+
+

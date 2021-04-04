@@ -4,20 +4,20 @@
 
         <div class="column">
 
-            <h2 class="registration-header">New User Details</h2>
-
+            <h2 class="registration-header">Account</h2>
+            <h2>Ovde treba da ispise podatke o korisniku i da omoguci izmenu</h2>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             
             
                 <div class="registration-first_name">
-                    <input type="text" placeholder="First Name" formControlName="firstName">
+                    <input type="text" placeholder="Katarina" formControlName="firstName">
                     <div *ngIf="registerForm.controls.firstName.invalid">
                         Please enter valid username
                     </div>
                 </div> 
 
                 <div class="registration-last_name">
-                    <input type="text" placeholder="Last Name" formControlName="lastName">
+                    <input type="text" placeholder="Veljkovic" formControlName="lastName">
                     <div *ngIf="registerForm.controls.lastName.invalid">
                         Please enter valid username
                     </div>
@@ -31,28 +31,28 @@
                 </div>
                 
                 <div class="registration-username">          
-                    <input type="text" placeholder="Username" formControlName="username">
+                    <input type="text" placeholder="kaca" formControlName="username">
                     <div *ngIf="registerForm.controls.username.invalid">
                         Please enter valid username
                     </div>
                 </div>
 
                 <div class="registration-email">
-                    <input type="text" placeholder="Email" formControlName="email">
+                    <input type="text" placeholder="kaca@gmail.com" formControlName="email">
                     <div *ngIf="registerForm.controls.email.invalid">
                         Please enter valid username
                     </div>
                 </div>
 
                 <div class="registration-password">
-                    <input type="password" placeholder="Password" formControlName="password">
+                    <input type="password" placeholder="......" formControlName="password">
                     <div *ngIf="registerForm.controls.password.invalid">
                         Please enter valid password
                     </div>
                 </div>
 
                 <div class="registration-password">
-                    <input type="password" placeholder="Repeat Password" formControlName="repeat">
+                    <input type="password" placeholder="New Password" formControlName="repeat">
                     <div *ngIf="registerForm.controls.repeat.invalid">
                         Please enter valid username
                     </div>
@@ -87,7 +87,7 @@
             
 
                 <div class="registration-submit">
-                    <button [disabled]="!registerForm.valid" type="register">Register</button>
+                    <button [disabled]="!registerForm.valid" type="register">Change</button>
                     
                 </div>
             

@@ -14,7 +14,7 @@ body
     place-items: center;   
     width: auto;
     position: fixed; 
-    top: 10%;  
+    top: 20%;  
     left: 50%;
     transform: translate(-50%, -10%);   
 }
@@ -27,9 +27,9 @@ body
     display: inline-block;
     text-align: center;
     padding: 10px 35px;
-    font-weight: 600;
-    float: right;
-    margin-bottom: 20px;
+    font-weight: 600;  
+    left:5%;
+    
 }
 
 .btn-regular:hover {
@@ -41,14 +41,33 @@ body
 .my-table {
     border-radius: 10px;
     border-color: #ffb336;
+   
+    
 }
 
 .my-table thead th {
     background: #015352;
     color: #fecf58;
+    
+    
 }
 
 .my-table tbody td {
     background: #fecf58;
-    color: #015352;
+    color: #015352;    
+    width: 150px;
+    height: 35px;
+    
+}
+
+li {
+    display: inline;
+    font-size: 20px;
+  }
+
+.number_menu
+{
+    
+    background-color: #ffb336;
+    
 }

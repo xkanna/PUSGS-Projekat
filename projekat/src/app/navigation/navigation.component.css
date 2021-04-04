@@ -21,6 +21,7 @@ body, p, h1, h2, h3, h4, h5
     margin: 0;   
 }
 
+
 .header 
 {    
     padding: 10px 40px;
@@ -28,6 +29,10 @@ body, p, h1, h2, h3, h4, h5
     background-color: #07171e; /*top bar*/
     position: fixed;
     width: 100%;    
+    
+    z-index: 9999; /*navigation bar in front*/
+    
+    
 }
 
 .main-header__left 

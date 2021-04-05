@@ -1,9 +1,9 @@
 <body>
     <div>
-        <input type="submit" class="btn-regular"  value="Filter"/>
-        <input type="submit" class="btn-regular" value="All"/>
-        <input type="submit" class="btn-regular" value="Mine"/>
-        <input type="submit" class="btn-regular"  value="New"/>
+        <button class="btn-regular">Filter</button>
+        <button class="btn-regular">All</button>
+        <button class="btn-regular">Mine</button>
+        <button class="btn-regular">New</button>
     </div>
     <table class="my-table">
     <thead>
@@ -16,40 +16,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                WR1
-            </td>
-            <td>
-                13. aug 2016
-            </td>
-            <td>
-                0623456342
-            </td>
-            <td>
-                Draft
-            </td>
-            <td>
-                Sekspirova 11
-            </td>
-        </tr>
-        <tr>
-            <td>
-                WR2
-            </td>
-            <td>
-                2. aug 2016
-            </td>
-            <td>
-                0623456342
-            </td>
-            <td>
-                Draft
-            </td>
-            <td>
-                Danila Kisa 32
-            </td>
-        </tr>
+        <tr *ngFor="let x of incidents">
+            <td>{{x.id}}</td>
+            <td>{{x.incidentTime}}</td>
+            <td>u klasi incident se ne spominje adresa??</td>
+            <td>{{x.status}}</td>
+            <td>{{x.address}}</td>
+         </tr>
     </tbody>
     </table>
     <div class="number_menu">

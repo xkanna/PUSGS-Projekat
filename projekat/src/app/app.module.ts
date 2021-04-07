@@ -11,6 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { IncidentNewComponent } from './incident-new/incident-new.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
+    IncidentNewComponent,
   ],
   imports: [
     BrowserModule,

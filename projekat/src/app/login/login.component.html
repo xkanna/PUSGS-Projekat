@@ -30,41 +30,41 @@
                
 
                 <div>
-
-                    <div>
-                        <!--<p>Username:</p>-->
-                        <input type="text" name="UserName" id="txtUserName" placeholder="Username *" required />
-                    </div>
-
-                    <div>
-                        <!--<p>Password:</p>-->
-                        <input type="password" class="form-control" name="password" id="txtpassword" placeholder="Password *" />
-                    </div>
-
-                    
-                    <input type="submit" value="Login">
-                    <p>No account? <a routerLink="/register">Register.</a></p>
-                    <div class="button">
-                        <!--<input type="submit" value="Register with facebook"/>-->
-                        <a class="btn btn-facebook"><i class="fa fa-facebook"></i>  Continue with Facebook</a>
-                    </div>
-
-                    <div>
-                        <a class="btn btn-twitter"><i class="fa fa-twitter"></i>   Continue with Twitter</a>
-                    </div>
-
-                    <div>
-                        <a class="btn btn-google-plus"><i class="fa fa-google-plus"></i>  Continue with Google</a>
-                    </div>
-
-                    <div>
-                        <a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>  Continue with LinkedIn</a>
-                    </div>
-                    
-                    <div>
-                        <input type="submit1" value="Continue with GitHub"/>
-                    </div>
-                
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div>
+                            <!--<p>Username:</p>-->
+                            <input type="text" name="UserName" id="txtUserName" placeholder="Username *" required formControlName="username"/>
+                        </div>
+    
+                        <div>
+                            <!--<p>Password:</p>-->
+                            <input type="password" class="form-control" name="password" id="txtpassword" placeholder="Password *" formControlName="password"/>
+                        </div>
+    
+                        
+                        <input type="submit" value="Login">
+                        <p>No account? <a routerLink="/register">Register.</a></p>
+                        <div class="button">
+                            <!--<input type="submit" value="Register with facebook"/>-->
+                            <a class="btn btn-facebook"><i class="fa fa-facebook"></i>  Continue with Facebook</a>
+                        </div>
+    
+                        <div>
+                            <a class="btn btn-twitter"><i class="fa fa-twitter"></i>   Continue with Twitter</a>
+                        </div>
+    
+                        <div>
+                            <a class="btn btn-google-plus"><i class="fa fa-google-plus"></i>  Continue with Google</a>
+                        </div>
+    
+                        <div>
+                            <a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>  Continue with LinkedIn</a>
+                        </div>
+                        
+                        <div>
+                            <input type="submit1" value="Continue with GitHub"/>
+                        </div>
+                    </form>
                 </div>
                 
             </div>

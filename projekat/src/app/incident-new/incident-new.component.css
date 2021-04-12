@@ -17,6 +17,7 @@ body
     top: 10%;  
     left: 5%;
     transform: translate(-10%, -10%);   
+    z-index: -5;
 }
 
 .btn-regular {
@@ -53,7 +54,8 @@ body
 
 .sidebar-menu__top__links 
 {
-    list-style-type: none;   
+    list-style-type: none;
+    text-align: left;
     
     
 }
@@ -74,7 +76,7 @@ body
 
 .sidebar-menu__top__links li:hover 
 {
-    
+    text-align: left;
 }
 
 .sidebar-menu__top__links li:hover i 
@@ -105,7 +107,7 @@ body
 .sidebar-menu__top__links .triger 
 {
     width: 200px;
-    text-align: center;
+    text-align: left;
 }
 
 .sidebar-menu__top__links .triger i 
@@ -135,6 +137,7 @@ body
     transform: translate(0, -13px);  
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    
 }
 
 .sidebar-menu__bottom 

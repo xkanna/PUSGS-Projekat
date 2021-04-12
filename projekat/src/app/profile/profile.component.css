@@ -32,7 +32,7 @@ body
 {   
     background: linear-gradient(to left, #f86f1a, #ba102a, #8d274a, #319197);
     margin: 0;
-    width: 600px; 
+    width: 90%; 
     height: auto;
     padding: 10px;
     text-align: center;
@@ -40,6 +40,7 @@ body
     align-self: center;
     border-radius: 25px;
     flex-direction: column;
+    
     
     
     
@@ -98,7 +99,7 @@ input[type="register"]
 
 .column {   
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 25px;
     background: #07171e;
     color: #113d3c;       

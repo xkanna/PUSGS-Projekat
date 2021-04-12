@@ -2,7 +2,7 @@ p, h1, h2, h3, h4, h5
 {
     margin: 0;
     font-family: sans-serif;
-    color: #015352;
+    color: #319197;
     padding: 20px;   
 }
 
@@ -30,7 +30,7 @@ body
 
 .registration
 {   
-    background: linear-gradient(to right, #015352, #ffb336, #fc9d02);
+    background: linear-gradient(to left, #f86f1a, #ba102a, #8d274a, #319197);
     margin: 0;
     width: 600px; 
     height: auto;
@@ -40,6 +40,8 @@ body
     align-self: center;
     border-radius: 25px;
     flex-direction: column;
+    
+    
     
    
 }
@@ -56,7 +58,7 @@ input[type="text"]
     height: 30px; 
     color: #ffb336;
     border: none;
-    border-bottom: 1px solid #113d3c;
+    border-bottom: 1px solid #319197;
     background: transparent; 
     font-weight: bold;   
 }

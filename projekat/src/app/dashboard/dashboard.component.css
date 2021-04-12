@@ -1,17 +1,17 @@
    a {
     text-decoration: none;
-    color: black;
+    color: 07171e;
   }
   
 p, h1, h2, h3, h4, h5 {
     margin: 0;
     text-align: left;
-    color:#015352;
+    color:#07171e;
   }
-.dashboard{
-}
+
+
   body{
-    width: auto;
+    width: 1000px;
     height: auto;
     position: fixed; 
     top: 20%;  
@@ -22,35 +22,59 @@ p, h1, h2, h3, h4, h5 {
 
     background-color: #07171e;
     text-align:center;
-    position:absolute;
+  
+
     
   }
 
   .my-table {
-    background-color: #015352; 
+    background-color: #8d274a; 
+    
+    
+
+  }
+
+.dashboard1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.dashboard2 {
+  display: flex; 
+  justify-content: space-between;
+  padding-top: 20px;
+
 }
 
 .my-table thead th {
-    background: #015352;
-    color: #fecf58;
+    background: #8d274a;
+    color: #07171e; 
+    
+    
     
     
 }
 
 .my-table tbody td {
-    background: #fecf58;
-    color: #015352;    
+    background: #319097b0;
+    color: #07171e;    
     width: 150px;
     height: 35px;
     
 }
 
+
+
+
 .chart{
-  background-color: #fecf58 ;
-  width: 600px;
+  background-color: #319097b0 ;
+  width: 480px;
   height: 300px;
   margin-top: 5px;
-  border-color: #015352;
+  border-color: #8d274a;
+  justify-content: space-between;
 }
 
 

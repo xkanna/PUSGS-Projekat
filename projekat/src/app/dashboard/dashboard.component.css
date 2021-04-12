@@ -13,31 +13,25 @@ p, h1, h2, h3, h4, h5 {
   body{
     width: 1000px;
     height: auto;
-    position: fixed; 
+    /* position: fixed; 
     top: 20%;  
-    left: 50%;
-    transform: translate(-50%, -10%);
+    left: 50%; */
+    /* transform: translate(-50%, -10%); */  /* NE STAVLJATI OVE STVARI POGOTOVO NE FIXED I ABSOLUTE NA BODY */
     overflow-y: scroll;
     overflow: hidden;
-
     background-color: #07171e;
     text-align:center;
-  
-
-    
+    margin: 0 auto;
   }
-
   .my-table {
     background-color: #8d274a; 
-    
-    
-
   }
 
 .dashboard1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 100px; /* NA OVAJ NACIN ODVAJAJ OD GORENJE IVICE..ZNACI NE NA BODY NEGO NA PRVI ELEMENT ISPOD BODY*/
   
 }
 

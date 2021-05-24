@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IncidentNewComponent } from './incident-new/incident-new.component';
+import { IncidentBasicInfoComponent } from './incident-new/basic-information/incident-basic-info.component';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'incident-new', component: IncidentNewComponent},
+  { path: 'incident-new', component: IncidentNewComponent, children: [
+    { path: 'incident-basic-info', component: IncidentBasicInfoComponent }
+  ]},
 ];
 
 @NgModule({

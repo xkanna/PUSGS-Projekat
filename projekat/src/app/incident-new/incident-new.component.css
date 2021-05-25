@@ -16,21 +16,6 @@ body
     position: fixed; 
     top: 10%;  
     left: 5%;
-    transform: translate(-10%, -10%);   
-    z-index: -5;
-}
-
-.btn-regular {
-    background: #ffb336;
-    color: #015352;
-    border: none;
-    border-radius: 10px;
-    display: inline-block;
-    text-align: center;
-    padding: 10px 35px;
-    font-weight: 600;  
-    left:5%;
-    
 }
 
 .btn-regular:hover {
@@ -106,6 +91,8 @@ body
 
 .sidebar-menu__top__links .triger 
 {
+    
+    color: #f86f1a;
     width: 200px;
     text-align: left;
 }

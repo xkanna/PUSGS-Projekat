@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { IncidentNewComponent } from './incident-new/incident-new.component';
 import { IncidentBasicInfoComponent } from './incident-new/basic-information/incident-basic-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IncidentDevicesComponent } from './incident-new/incident-devices/incident-devices/incident-devices.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -33,7 +34,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
@@ -42,13 +42,21 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { IncidentResolutionComponent } from './incident-new/incident-resolution/incident-resolution.component';
+import { IncidentCallsComponent } from './incident-new/incident-calls/incident-calls.component';
+import { IncidentCrewComponent } from './incident-new/incident-crew/incident-crew.component';
+import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/incident-multimedia.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +69,13 @@ import {OverlayModule} from '@angular/cdk/overlay';
     LoginComponent,
     ProfileComponent,
     IncidentNewComponent,
-    IncidentBasicInfoComponent
+    IncidentBasicInfoComponent,
+    IncidentDevicesComponent,
+    IncidentResolutionComponent,
+    IncidentCallsComponent,
+    IncidentCrewComponent,
+    IncidentMultimediaComponent,
+    IncidentEquipmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +102,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
@@ -98,17 +111,20 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatSliderModule,
     MatSlideToggleModule,
     MatSnackBarModule,
-    MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
   ],
   exports:[
     MatAutocompleteModule,
     MatBadgeModule,
+    ReactiveFormsModule,
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -126,7 +142,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
-    MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
@@ -136,13 +151,15 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatSliderModule,
     MatSlideToggleModule,
     MatSnackBarModule,
-    MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

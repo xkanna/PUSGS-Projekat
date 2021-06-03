@@ -135,4 +135,22 @@ body
     padding-left: 8px;
 }
 
+.btn{
+    width: 230px;
+    padding: 10px;
+    
+    border-radius: 10px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    text-decoration: none; /* remove underline from anchors */
+    text-align:center;
+
+    background-color: #f86f1a;
+    color: #07171e;
+    cursor: pointer;
+}
+
 

@@ -18,3 +18,15 @@ p, h1, h2, h3, h4, h5
     color: #07171e;
     padding: 20px;   
 }
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }

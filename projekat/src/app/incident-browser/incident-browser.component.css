@@ -36,48 +36,19 @@ body
     background: #fecf58;
 }
 
-.my-table {
-    border-radius: 10px;
-    border-color: #319197;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    border-collapse:collapse;
-    
-}
-
-.my-table tr
-{
-    border: 1px solid #f86f1a;
-}
-
-.my-table thead th {
-    /*background: linear-gradient(to left, #f86f1a, #ba102a, #8d274a, #319197);*/
-    background: #319197;
-    color: #07171e;
-    
-    
-}
-
-.my-table tbody td {
-    background: #31909773;
-    text-align: left;
-    color: #07171e;    
-    width: 150px;
-    height: 35px;
-    
-}
-
-li {
-    display: inline;
-    font-size: 20px;
+table {
+    width: 1000px;
   }
-
-.number_menu
-{
-    
-    background-color: #ffb336;
-    
-}
+  
+  .mat-form-field {
+    background-color: white;
+    font-size: 14px;
+    width: 1000px;
+  }
+  
+  td, th {
+    width: 25%;
+  }
 
 .buttons
 {

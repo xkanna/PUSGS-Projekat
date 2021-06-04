@@ -11,8 +11,8 @@
         </div>
         <div class="main-header__right">
             <div class="main-header__account">
-                <p>Katarina Veljkovic</p>
-                <a href="/profile">Account settings</a>
+                <p>{{userFullName}}</p>
+                <a (click)="logout()">LogOut</a>
             </div>
             <div class="main-header__account-options">
                 <a href="/profile"><i class="fas fa-user-alt"></i></a>

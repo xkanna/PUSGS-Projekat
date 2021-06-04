@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import {Crew} from '../models/crew.model';
+import {RegisterUser} from '../models/registerUser.model'
+import {UserService} from '../services/user-service/user.service'
 
 @Component({
   selector: 'app-register',
@@ -27,7 +30,7 @@ registerForm!: FormGroup;
 
   url:any;
 
-  constructor() { }
+  constructor(private userService: UserService, private router:Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -51,6 +54,28 @@ registerForm!: FormGroup;
 
   onSubmit() {
     //validacija da li je username in use, da li su passwordi isti itd
+    var body:RegisterUser = {
+      Username:this.registerForm.get('username')?.value,
+      Email:this.registerForm.get('email')?.value,
+      Password:this.registerForm.get('password')?.value,
+      FullName:this.registerForm.get('firstName')?.value + " " + this.registerForm.get('lastName')?.value,
+      DOB:this.registerForm.get('date')?.value,
+      Street:this.registerForm.get('address')?.value,
+      Role:this.registerForm.get('role')?.value,
+      CrewID:this.registerForm.get('role')?.value === "crew"? this.selectedCrew.id : -1 
+    };
+
+    this.userService.register(body).subscribe(
+      (res:any)=>{
+        this.registerForm.reset();
+        console.log("worked");
+        this.router.navigateByUrl('/');
+      },
+      err=>{
+        console.log(err);
+      }
+    );
+
     console.log(this.registerForm.get('username')?.value);
     console.log(this.registerForm.value);
     console.log(this.registerForm);

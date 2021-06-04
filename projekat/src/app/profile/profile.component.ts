@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import {Crew} from '../models/crew.model';
+import { RegisterUser } from '../models/registerUser.model';
+import { UserService } from '../services/user-service/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -27,10 +29,35 @@ registerForm!: FormGroup;
 
   url:any;
 
-  constructor() { }
+  constructor(private service:UserService) { }
 
   ngOnInit(): void {
     this.initForm();
+    this.loadData();
+  }
+
+  private loadData(){
+    var body:RegisterUser;
+    this.service.getProfile().subscribe(
+      (res:any)=>{
+        body = res.profile;
+        this.registerForm.patchValue({
+          username:body.Username,
+          email:body.Email,
+          password:"",
+          repeat:"",
+          firstName:body.FullName.split(' ')[0],
+          lastName:body.FullName.split(' ')[1],
+          date:body.DOB,
+          address:body.Street,
+          role:body.Role,
+          crew:body.CrewID
+        });
+      },
+      err=>{
+        console.log(err);
+      }
+    );    
   }
 
   private initForm() {
@@ -50,10 +77,25 @@ registerForm!: FormGroup;
   }
 
   onSubmit() {
-    //validacija da li je username in use, da li su passwordi isti itd
-    console.log(this.registerForm.get('username')?.value);
-    console.log(this.registerForm.value);
-    console.log(this.registerForm);
+    var body:RegisterUser = {
+      Username:this.registerForm.get('username')?.value,
+      Email:this.registerForm.get('email')?.value,
+      Password:this.registerForm.get('password')?.value,
+      FullName:this.registerForm.get('firstName')?.value + " " + this.registerForm.get('lastName')?.value,
+      DOB:this.registerForm.get('date')?.value,
+      Street:this.registerForm.get('address')?.value,
+      Role:this.registerForm.get('role')?.value,
+      CrewID:this.registerForm.get('role')?.value === "crew"? this.selectedCrew.id : -1 
+    }
+    this.service.editProfile(body, this.registerForm.get('repeat')?.value).subscribe(
+      (res:any)=>{
+        localStorage.setItem("FullName",body.FullName);
+      },
+      err=>{
+        console.log(err + "if err.status ==400");
+      }
+    )
+    this.loadData();
   }
 
   onSelectFile(event:any) { // called each time file input changes

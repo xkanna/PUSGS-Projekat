@@ -45,14 +45,14 @@
                 </div>
 
                 <div class="registration-password">
-                    <input type="password" placeholder="......" formControlName="password">
+                    <input type="password" placeholder="New Password" formControlName="password">
                     <div *ngIf="registerForm.controls.password.invalid">
                         Please enter valid password
                     </div>
                 </div>
 
                 <div class="registration-password">
-                    <input type="password" placeholder="New Password" formControlName="repeat">
+                    <input type="password" placeholder="Old Password" formControlName="repeat">
                     <div *ngIf="registerForm.controls.repeat.invalid">
                         Please enter valid username
                     </div>

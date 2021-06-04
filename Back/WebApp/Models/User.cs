@@ -26,12 +26,9 @@ namespace WebApp.Models
 
         }
 
-        [Required]
         public string FullName { get; set; }
         public DateTime DOB { get; set; }
-        [Required]
         public string Role { get; set; }
-        [Required]
         public int StreetID { get; set; }
         public int CrewID { get; set; }
     }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -42,12 +42,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {MatTableModule} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { IncidentResolutionComponent } from './incident-new/incident-resolution/incident-resolution.component';
@@ -56,6 +57,10 @@ import { IncidentCrewComponent } from './incident-new/incident-crew/incident-cre
 import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/incident-multimedia.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
+import {AuthInterceptor} from './authInterceptor'
+import {HTTP_INTERCEPTORS} from '@angular/common/http'
+
+
 
 
 @NgModule({
@@ -78,6 +83,7 @@ import { IncidentEquipmentComponent } from './incident-new/incident-equipment/in
     IncidentEquipmentComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -161,7 +167,9 @@ import { IncidentEquipmentComponent } from './incident-new/incident-equipment/in
     MatSortModule,
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

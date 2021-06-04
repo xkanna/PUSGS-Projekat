@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { LoginUser } from '../models/loginUser.model';
+import { UserService } from '../services/user-service/user.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -11,9 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor() {
-    
-   }
+  constructor(private userService: UserService, private router:Router) { }
 
    ngOnInit(): void {
     this.initForm();
@@ -28,6 +29,26 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     //validacija da li je username in use, da li su passwordi isti itd
+
+    var body:LoginUser = {
+      Username: this.loginForm.get('username')?.value,
+      Password: this.loginForm.get('password')?.value
+    }
+
+    this.userService.login(body).subscribe(
+      (res:any)=>{
+        localStorage.setItem('token', res.token);
+        localStorage.setItem("FullName", res.name);
+        localStorage.setItem("Role", res.role);
+        this.loginForm.reset();
+        console.log('logged in');
+        this.router.navigateByUrl('/dashboard');
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+
     console.log(this.loginForm.get('username')?.value);
     console.log(this.loginForm.value);
     console.log(this.loginForm);

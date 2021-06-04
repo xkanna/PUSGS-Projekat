@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -14,6 +15,9 @@ using System.Threading.Tasks;
 using WebApp.DTOs;
 using WebApp.Models;
 using WebApp.Repository;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -49,7 +53,7 @@ namespace WebApp.Controllers
                     Subject = new ClaimsIdentity(new Claim[]
                     {
                         new Claim("UserID", user.Id.ToString()),
-                        new Claim("Role", user.Role)
+                        new Claim("Role", user.Role),
                     }),
                     Expires = DateTime.UtcNow.AddMinutes(5),
                     //Key min: 16 characters
@@ -58,11 +62,56 @@ namespace WebApp.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
-                return Ok(new { token });
+                return Ok(new { token, role = user.Role, name=user.FullName });
             }
             else
                 return BadRequest(new { message = "Username or password is incorrect." });
         }
+
+        [HttpPost]
+        [Route("EditProfile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> EditProfile([FromBody] UserDTO model, [FromBody] string currentPassword)
+        {
+            string id = User.Claims.First(x => x.Type == "UserID").Value;
+            User temp = await _userManager.FindByIdAsync(id);
+            temp.FullName = model.FullName;
+            temp.UserName = model.Username;
+            temp.Role = model.Role;
+            temp.Email = model.Email;
+            temp.CrewID = model.CrewID;
+            temp.StreetID = (await data.Streets.FirstOrDefaultAsync(x => x.Name == model.Street)).Id;
+            temp.DOB = model.DOB;
+            await _userManager.UpdateAsync(temp);
+            await _userManager.ChangePasswordAsync(temp, currentPassword, model.Password);
+            //proveriti dal je uspesno, ako nije vrv vratiti neki status code
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("GetProfile")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetProfile()
+        {
+            User temp = await _userManager.FindByIdAsync(User.Claims.First(x => x.Type == "UserID").Value);
+            UserDTO retval = new UserDTO()
+            {
+                FullName = temp.FullName,
+                Username = temp.UserName,
+                Role = temp.Role,
+                Email = temp.Email,
+                CrewID = temp.CrewID,
+                Street = (await data.Streets.FirstOrDefaultAsync(x => x.Id == temp.StreetID)).Name,
+                DOB = temp.DOB,
+
+            };
+            return Ok(retval);
+        }
+
+        //[HttpGet]
+        //[Route("UserInfo")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //public async Task<IActionResult>
 
         [HttpPost]
         [Route("SocialLogin")]
@@ -97,7 +146,7 @@ namespace WebApp.Controllers
                 DOB = model.DOB,
                 Role = model.Role,
                 CrewID = model.CrewID,
-                StreetID = data.Streets.FirstOrDefault(x=>x.Name == model.Street).Id
+                StreetID = (await data.Streets.FirstOrDefaultAsync(x=>x.Name == model.Street)).Id
             };
             try
             {

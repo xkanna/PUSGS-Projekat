@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o6SOeAzyRPlsieT1aOIKEaL0PFZJ2U1voXX7+EkbTjTmvvydh78zn9tmyswlVM+RQfva3yz+eMS47QmjSjTfbg==",
+  "dgSpecHash": "KdAXYjKazzoHInxlRUTa5id0goL7nlxyjloxeTV81clriJF6fRIr0fETPUHG6EhEG0Ecyx2iM5H2JtkiTJOTjw==",
   "success": true,
-  "projectFilePath": "D:\\PUSGS-Projekat\\Back\\WebApp\\WebApp.csproj",
+  "projectFilePath": "D:\\WEB NEW\\PUSGS-Projekat\\Back\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aleksa\\.nuget\\packages\\awssdk.core\\3.7.0.26\\awssdk.core.3.7.0.26.nupkg.sha512",
     "C:\\Users\\Aleksa\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

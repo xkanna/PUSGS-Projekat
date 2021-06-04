@@ -42,12 +42,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {MatTableModule} from '@angular/material/table';
+import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { IncidentResolutionComponent } from './incident-new/incident-resolution/incident-resolution.component';
@@ -56,6 +57,8 @@ import { IncidentCrewComponent } from './incident-new/incident-crew/incident-cre
 import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/incident-multimedia.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
+
+
 
 
 @NgModule({

@@ -13,7 +13,7 @@
   a 
   {
     text-decoration: none;
-    color: #07171e;
+    color: #00202e;
   }
   
   body, p, h1, h2, h3, h4, h5 
@@ -54,7 +54,7 @@
 
 .sidebar-menu__top__links li:hover span 
 {
-    color: #07171e;
+    color: #f86f1a; /*boja slova*/
 } 
 
 .sidebar-menu__top__links a 
@@ -99,7 +99,7 @@
 {
     display: inline-block;
     position: absolute;
-    background-color: #ba102a;
+    background-color: #07171e; /*pozadina naziva*/
     width: auto;
     padding: 15px;
     transform: translate(0, -13px);  

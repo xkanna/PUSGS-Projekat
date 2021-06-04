@@ -4,127 +4,208 @@
       <div class="basic-info-title">
           <h2>BASIC INFORMATION</h2>
       </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Incident ID:</p>
-          <p> ID</p>
-        </div>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>Affected customers</mat-label>
-              <input matInput placeholder="Affected customers">
+
+      <table>
+
+        <tr>
+
+          <td>
+            <p>Incident ID:</p>
+          </td>
+
+          <td>
+            <p> ID</p>
+          </td>
+
+          <td>
+            <p>Affected customers:</p>
+          </td>
+
+          <td>
+              <mat-form-field appearance="outline">
+                <mat-label>Affected customers</mat-label>
+                <input matInput placeholder="Affected customers">
+              </mat-form-field>         
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>Type:</p>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Planned Work</mat-label>
+              <mat-select>
+                <mat-option value="option">Opcija1</mat-option>
+                <mat-option value="option2">Opcija2</mat-option>
+              </mat-select>
             </mat-form-field>
-          </p>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Type:</p>
-          <mat-form-field appearance="fill">
-            <mat-label>Planned Work</mat-label>
-            <mat-select>
-              <mat-option value="option">Opcija1</mat-option>
-              <mat-option value="option2">Opcija2</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div style="display:flex; justify-content: space-between;">
-          <p>Outage Time:</p>
-              <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+          </td>
+
+          <td>
+            <p>Outage Time:</p>
+          </td>
+          
+          <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>Priority:</p>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>1</mat-label>
+              <mat-select>
+                <mat-option value="option">1</mat-option>
+                <mat-option value="option2">2</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+
+          <td>
+            <p>ETR:</p>
+          </td>
+
+          <td>
+                <mat-form-field appearance="fill">
+                  <mat-label>Select</mat-label>
+                  <input matInput [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>Confirmed:</p>
+          </td>
+
+          <td>
+            <mat-slide-toggle></mat-slide-toggle>
+          </td>
+
+          <td>
+            <p>Calls:</p>
+          </td>
+
+          <td>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>5</mat-label>
+                <input matInput placeholder="Affected customers">
               </mat-form-field>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Priority:</p>
-          <mat-form-field appearance="fill">
-            <mat-label>1</mat-label>
-            <mat-select>
-              <mat-option value="option">1</mat-option>
-              <mat-option value="option2">2</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div style="display:flex; justify-content: space-between;">
-          <p>ETR:</p>
-              <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <input matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>Status:</p>
+          </td>
+
+          <td>
+            <p> Dispached</p>
+          </td>
+
+          <td>
+            <p>Voltage:</p>
+          </td>
+
+          <td>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>12.47</mat-label>
+                <input matInput placeholder="Affected customers">
               </mat-form-field>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Confirmed:</p>
-          <mat-slide-toggle></mat-slide-toggle>
-        </div>
-        <div style="display:flex; justify-content: space-between;">
-          <p>Calls:</p>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>5</mat-label>
-              <input matInput placeholder="Affected customers">
+            </p>
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>Description:</p>
+          </td>
+
+          <td>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label></mat-label>
+                <input matInput placeholder="Affected customers">
+              </mat-form-field>
+            </p>
+          </td>
+
+          <td>
+            <p>Scheduled time:</p>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-          </p>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Status:</p>
-          <p> Dispached</p>
-        </div>
-        <div style="display:flex; justify-content: space-between;">
-          <p>Voltage:</p>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>12.47</mat-label>
-              <input matInput placeholder="Affected customers">
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>ETA:</p>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
-          </p>
-        </div>
-      </div>
-      <div style="display:flex; justify-content:space-between;">
-        <div style="display:flex; justify-content: space-between;">
-          <p>Description:</p>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label></mat-label>
-              <input matInput placeholder="Affected customers">
-            </mat-form-field>
-          </p>
-        </div>
-        <div style="display:flex; justify-content: space-between;">
-          <p>Scheduled time:</p>
-          <mat-form-field appearance="fill">
-            <mat-label>Select</mat-label>
-            <input matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-      <div style="display:flex; justify-content: space-between;">
-        <p>ETA:</p>
-        <mat-form-field appearance="fill">
-          <mat-label>Select</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div style="display:flex; justify-content: space-between;">
-        <p>ATA:</p>
-        <mat-form-field appearance="fill">
-          <mat-label>Select</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td>
+            <p>ATA:</p>
+          </td>
+
+          <td>
+            <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>         
+          </td>
+
+        </tr>
+
+    </table>
+
     </div>
 </div>

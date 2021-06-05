@@ -10,7 +10,9 @@ export class IncidentService {
   private baseUrl = "https://localhost:44364/api/Incidents/"
   public currentIncident!:Incident;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.currentIncident = new Incident();
+   }
   
   getIncidents(){
     return this.http.get(this.baseUrl);

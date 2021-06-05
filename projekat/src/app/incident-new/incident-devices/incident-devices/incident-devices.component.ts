@@ -1,7 +1,9 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { DeviceModalComponent } from 'src/app/device-modal/device-modal.component';
 
 export interface UserData {
   id: string;
@@ -31,16 +33,31 @@ export class IncidentDevicesComponent implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   dataSource: MatTableDataSource<UserData>;
 
+  selectedDeviceId!:string;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DeviceModalComponent, {
+      width: '75%',
+      data: { deviceId: this.selectedDeviceId, incidentId: -1}//ovde promeniti ako je bitan id onog ko poziva modal
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.selectedDeviceId = result;//oni salju konkretno animal iz modala u this.modal, mozda mora da se pazi ovde
+    });
+  }
+  
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

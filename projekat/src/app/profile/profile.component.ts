@@ -91,11 +91,16 @@ registerForm!: FormGroup;
     this.service.editProfile(body, this.registerForm.get('repeat')?.value).subscribe(
       (res:any)=>{
         localStorage.setItem("FullName",body.FullName);
-        if(res.msg === "ok"){
+        if(res.msg === "changedpass"){
           localStorage.clear();
           this.router.navigateByUrl("/");
         }else{
-          //neki print greske jer je pogresan stari pass ili nije dobar novi
+          if(res.msg==="ok"){
+            this.loadData();
+          }
+          else{
+            //eror pri promeni passa
+          }
         }
       },
       err=>{

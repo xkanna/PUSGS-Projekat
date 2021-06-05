@@ -13,16 +13,18 @@ import { IncidentCallsComponent } from './incident-new/incident-calls/incident-c
 import { IncidentCrewComponent } from './incident-new/incident-crew/incident-crew.component';
 import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/incident-multimedia.component';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
+import { UnregisteredGuard } from './guards/unregistered.guard';
+import { WorkerGuard } from './guards/worker.guard';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'incident-browser', component: IncidentBrowserComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [UnregisteredGuard] },
+  { path: 'incident-browser', component: IncidentBrowserComponent, canActivate: [UnregisteredGuard] },
   { path: 'register', component: RegisterComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'incident-new', component: IncidentNewComponent, children: [
+  //{ path: 'login', component: LoginComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [UnregisteredGuard]},
+  { path: 'incident-new', component: IncidentNewComponent, canActivate: [UnregisteredGuard, WorkerGuard], children: [
     { path: 'incident-basic-info', component: IncidentBasicInfoComponent },
     { path: 'incident-devices', component: IncidentDevicesComponent },
     { path: 'incident-resolution', component: IncidentResolutionComponent },

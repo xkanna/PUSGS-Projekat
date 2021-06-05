@@ -13,5 +13,9 @@ export class Incident{
     voltage!:number;
     scheduledTime!:Date;
     address!:string;
+    cause!:string;
+    subCause!:string;
+    construction!:string;
+    material!:string;
     //dodeli sebi resenje??
 }

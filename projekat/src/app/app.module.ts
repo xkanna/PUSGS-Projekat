@@ -59,7 +59,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
 import {AuthInterceptor} from './authInterceptor'
 import {HTTP_INTERCEPTORS} from '@angular/common/http'
-
+import {UnregisteredGuard} from './guards/unregistered.guard';
+import {WorkerGuard} from './guards/worker.guard';
+import { DeviceModalComponent } from './device-modal/device-modal.component';
 
 
 
@@ -81,6 +83,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http'
     IncidentCrewComponent,
     IncidentMultimediaComponent,
     IncidentEquipmentComponent,
+    DeviceModalComponent,
   ],
   imports: [
     HttpClientModule,
@@ -168,6 +171,8 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http'
     MatFormFieldModule,
   ],
   providers: [
+    UnregisteredGuard,
+    WorkerGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]

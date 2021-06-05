@@ -24,6 +24,8 @@ import { WorkerGuard } from './guards/worker.guard';
 import { CallsComponent } from './calls/calls.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
+import { AddTeamComponent } from './add-team/add-team.component';
+import { AddConsumerComponent } from './add-consumer/add-consumer.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,8 @@ const routes: Routes = [
   { path: 'calls', component: CallsComponent},
   { path: 'add-device', component: AddDeviceComponent},
   { path: 'add-new-device', component: AddNewDeviceComponent},
+  { path: 'add-team', component: AddTeamComponent},
+  { path: 'add-consumer', component: AddConsumerComponent},
   { path: 'incident-new', component: IncidentNewComponent, canActivate: [UnregisteredGuard, WorkerGuard], children: [
     { path: 'incident-basic-info', component: IncidentBasicInfoComponent },
     { path: 'incident-devices', component: IncidentDevicesComponent },

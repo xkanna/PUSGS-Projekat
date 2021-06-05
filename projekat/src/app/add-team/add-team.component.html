@@ -1,0 +1,76 @@
+<body>
+    <table>
+    
+        <tr>
+    
+          <td>
+            <p>Name:</p>
+          </td>
+    
+          <td>
+            <div>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+              </p>
+            </div>
+          </td>
+    
+        </tr>
+        <tr>
+    
+            <td>
+              <p>Id:</p>
+            </td>
+      
+            <td>
+              <div>
+                <p>
+                  <mat-form-field appearance="outline">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="Id">
+                  </mat-form-field>
+                </p>
+              </div>
+            </td>
+      
+          </tr>
+          <tr>
+    
+            <td>
+                <div class="example-container">
+                    <h2>New Team</h2>
+                  
+                    <div
+                      cdkDropList
+                      #todoList="cdkDropList"
+                      [cdkDropListData]="team"
+                      [cdkDropListConnectedTo]="[doneList]"
+                      class="example-list"
+                      (cdkDropListDropped)="drop($event)">
+                      <div class="example-box" *ngFor="let item of team" cdkDrag>{{item}}</div>
+                    </div>
+                  </div>
+                  
+                  <div class="example-container">
+                    <h2>Workers</h2>
+                  
+                    <div
+                      cdkDropList
+                      #doneList="cdkDropList"
+                      [cdkDropListData]="workers"
+                      [cdkDropListConnectedTo]="[todoList]"
+                      class="example-list"
+                      (cdkDropListDropped)="drop($event)">
+                      <div class="example-box" *ngFor="let item of workers" cdkDrag>{{item}}</div>
+                    </div>
+                  </div>
+            </td>
+    
+          <tr>
+    
+          <td><button class="btn-regular">Add</button></td>
+    </table>
+    </body>

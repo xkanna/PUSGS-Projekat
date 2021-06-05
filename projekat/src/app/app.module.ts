@@ -73,6 +73,9 @@ import { CallsComponent } from './calls/calls.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
 import { ChartsModule } from 'ng2-charts';
+import { AddTeamComponent } from './add-team/add-team.component';
+import { AddConsumerComponent } from './add-consumer/add-consumer.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -104,6 +107,8 @@ import { ChartsModule } from 'ng2-charts';
     CallsComponent,
     AddDeviceComponent,
     AddNewDeviceComponent,
+    AddTeamComponent,
+    AddConsumerComponent,
   ],
   imports: [
     HttpClientModule,
@@ -150,6 +155,7 @@ import { ChartsModule } from 'ng2-charts';
     MatSortModule,
     MatFormFieldModule,
     ChartsModule,
+    DragDropModule,
   ],
   exports:[
     MatAutocompleteModule,
@@ -191,6 +197,7 @@ import { ChartsModule } from 'ng2-charts';
     MatSortModule,
     MatFormFieldModule,
     ChartsModule,
+    DragDropModule,
   ],
   providers: [
     UnregisteredGuard,

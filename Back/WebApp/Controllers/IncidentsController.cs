@@ -34,15 +34,24 @@ namespace WebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            if (await auth.Users.FirstOrDefaultAsync(x => x.Id == User.Claims.First(x => x.Type == "UserID").Value) !=null)
-            {
-                return Ok(new { list = data.Incidents.ToList() });
-            }
-            else
-            {
-                return Unauthorized();
-            }
-            
+            //await data.Incidents.AddAsync(new Incident()
+            //{
+            //    Type = "Planned",
+            //    Confirmed = true,
+            //    Status = "Dispatched",
+            //    AffectedCustomers = 5,
+            //    Cause = "Weather",
+            //    ATA = DateTime.Now,
+            //    ETA = DateTime.Now,
+            //    ETR = DateTime.Now,
+            //    Material = "Metal",
+            //    Subcause = "Lightning",
+            //    ConstructionType = "AboveGround",
+            //    Voltage = 220,
+            //    ScheduledTime = DateTime.Now
+            //});
+            //await data.SaveChangesAsync();
+            return Ok(new { list = await data.Incidents.ToListAsync() });
         }
 
         // GET api/<IncidentsController>/5

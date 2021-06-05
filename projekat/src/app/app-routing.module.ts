@@ -26,6 +26,11 @@ import { AddDeviceComponent } from './add-device/add-device.component';
 import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { AddConsumerComponent } from './add-consumer/add-consumer.component';
+import { MapComponent } from './map/map.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationsAllComponent } from './notifications/notifications-all/notifications-all.component';
+import { SwitchingPlansComponent } from './switching-plans/switching-plans.component';
+import { SwitchingPlansNewComponent } from './switching-plans-new/switching-plans-new.component';
 
 
 const routes: Routes = [
@@ -40,6 +45,10 @@ const routes: Routes = [
   { path: 'add-new-device', component: AddNewDeviceComponent},
   { path: 'add-team', component: AddTeamComponent},
   { path: 'add-consumer', component: AddConsumerComponent},
+  { path: 'map', component: MapComponent},
+  { path: 'notifications', component: NotificationsComponent, children:[
+    { path: 'notifications-all', component: NotificationsAllComponent },
+  ]},
   { path: 'incident-new', component: IncidentNewComponent, canActivate: [UnregisteredGuard, WorkerGuard], children: [
     { path: 'incident-basic-info', component: IncidentBasicInfoComponent },
     { path: 'incident-devices', component: IncidentDevicesComponent },
@@ -55,6 +64,9 @@ const routes: Routes = [
     { path: 'work-requests-history', component: WorkRequestsHistoryComponent },
     { path: 'work-requests-multimedia', component: WorkRequestsMultimediaComponent },
     { path: 'work-requests-equipment', component: WorkRequestsEquipmentComponent },
+  ]},
+  { path: 'switching-plans', component: SwitchingPlansComponent},
+  { path: 'switching-plans-new', component: SwitchingPlansNewComponent, children: [
   ]},
 ];
 

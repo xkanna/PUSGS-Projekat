@@ -76,6 +76,16 @@ import { ChartsModule } from 'ng2-charts';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { AddConsumerComponent } from './add-consumer/add-consumer.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MapComponent } from './map/map.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationsAllComponent } from './notifications/notifications-all/notifications-all.component';
+import { SwitchingPlansComponent } from './switching-plans/switching-plans.component';
+import { SwitchingPlansNewComponent } from './switching-plans-new/switching-plans-new.component';
+import { SwitchingPlansBasicInfoComponent } from './switching-plans-new/switching-plans-basic-info/switching-plans-basic-info.component';
+import { SwitchingPlansHistoryComponent } from './switching-plans-new/switching-plans-history/switching-plans-history.component';
+import { SwitchingPlansMultimediaComponent } from './switching-plans-new/switching-plans-multimedia/switching-plans-multimedia.component';
+import { SwitchingPlansEquipmentComponent } from './switching-plans-new/switching-plans-equipment/switching-plans-equipment.component';
+import { SwitchingPlansChecklistComponent } from './switching-plans-new/switching-plans-checklist/switching-plans-checklist.component';
 
 
 
@@ -109,6 +119,16 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AddNewDeviceComponent,
     AddTeamComponent,
     AddConsumerComponent,
+    MapComponent,
+    NotificationsComponent,
+    NotificationsAllComponent,
+    SwitchingPlansComponent,
+    SwitchingPlansNewComponent,
+    SwitchingPlansBasicInfoComponent,
+    SwitchingPlansHistoryComponent,
+    SwitchingPlansMultimediaComponent,
+    SwitchingPlansEquipmentComponent,
+    SwitchingPlansChecklistComponent,
   ],
   imports: [
     HttpClientModule,

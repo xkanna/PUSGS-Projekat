@@ -13,6 +13,12 @@ import { IncidentCallsComponent } from './incident-new/incident-calls/incident-c
 import { IncidentCrewComponent } from './incident-new/incident-crew/incident-crew.component';
 import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/incident-multimedia.component';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
+import { WorkRequestsComponent } from './work-requests/work-requests.component';
+import { WorkRequestsNewComponent } from './work-requests-new/work-requests-new.component';
+import { WorkRequestsBasicInfoComponent } from './work-requests-new/work-requests-basic-info/work-requests-basic-info.component';
+import { WorkRequestsHistoryComponent } from './work-requests-new/work-requests-history/work-requests-history.component';
+import { WorkRequestsMultimediaComponent } from './work-requests-new/work-requests-multimedia/work-requests-multimedia.component';
+import { WorkRequestsEquipmentComponent } from './work-requests-new/work-requests-equipment/work-requests-equipment.component';
 
 
 const routes: Routes = [
@@ -30,6 +36,13 @@ const routes: Routes = [
     { path: 'incident-crew', component: IncidentCrewComponent },
     { path: 'incident-multimedia', component: IncidentMultimediaComponent },
     { path: 'incident-equipment', component: IncidentEquipmentComponent },
+  ]},
+  { path: 'work-requests', component: WorkRequestsComponent},
+  { path: 'work-requests-new', component: WorkRequestsNewComponent, children: [
+    { path: 'work-requests-basic-info', component: WorkRequestsBasicInfoComponent },
+    { path: 'work-requests-history', component: WorkRequestsHistoryComponent },
+    { path: 'work-requests-multimedia', component: WorkRequestsMultimediaComponent },
+    { path: 'work-requests-equipment', component: WorkRequestsEquipmentComponent },
   ]},
 ];
 

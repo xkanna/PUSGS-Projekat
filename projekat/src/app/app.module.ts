@@ -58,7 +58,13 @@ import { IncidentMultimediaComponent } from './incident-new/incident-multimedia/
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { IncidentEquipmentComponent } from './incident-new/incident-equipment/incident-equipment.component';
 import {AuthInterceptor} from './authInterceptor'
-import {HTTP_INTERCEPTORS} from '@angular/common/http'
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { WorkRequestsComponent } from './work-requests/work-requests.component';
+import { WorkRequestsNewComponent } from './work-requests-new/work-requests-new.component';
+import { WorkRequestsBasicInfoComponent } from './work-requests-new/work-requests-basic-info/work-requests-basic-info.component';
+import { WorkRequestsHistoryComponent } from './work-requests-new/work-requests-history/work-requests-history.component';
+import { WorkRequestsMultimediaComponent } from './work-requests-new/work-requests-multimedia/work-requests-multimedia.component';
+import { WorkRequestsEquipmentComponent } from './work-requests-new/work-requests-equipment/work-requests-equipment.component';
 
 
 
@@ -81,6 +87,12 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http'
     IncidentCrewComponent,
     IncidentMultimediaComponent,
     IncidentEquipmentComponent,
+    WorkRequestsComponent,
+    WorkRequestsNewComponent,
+    WorkRequestsBasicInfoComponent,
+    WorkRequestsHistoryComponent,
+    WorkRequestsMultimediaComponent,
+    WorkRequestsEquipmentComponent,
   ],
   imports: [
     HttpClientModule,

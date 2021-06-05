@@ -70,6 +70,8 @@ import {UnregisteredGuard} from './guards/unregistered.guard';
 import {WorkerGuard} from './guards/worker.guard';
 import { DeviceModalComponent } from './device-modal/device-modal.component';
 import { CallsComponent } from './calls/calls.component';
+import { AddDeviceComponent } from './add-device/add-device.component';
+import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
 
 
 
@@ -99,6 +101,8 @@ import { CallsComponent } from './calls/calls.component';
     WorkRequestsEquipmentComponent,
     DeviceModalComponent,
     CallsComponent,
+    AddDeviceComponent,
+    AddNewDeviceComponent,
   ],
   imports: [
     HttpClientModule,

@@ -76,6 +76,11 @@ import { ChartsModule } from 'ng2-charts';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { AddConsumerComponent } from './add-consumer/add-consumer.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MapComponent } from './map/map.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { NotificationsAllComponent } from './notifications/notifications-all/notifications-all.component';
+import { SwitchingPlansComponent } from './switching-plans/switching-plans.component';
+import { SwitchingPlansNewComponent } from './switching-plans-new/switching-plans-new.component';
 
 
 
@@ -109,6 +114,11 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AddNewDeviceComponent,
     AddTeamComponent,
     AddConsumerComponent,
+    MapComponent,
+    NotificationsComponent,
+    NotificationsAllComponent,
+    SwitchingPlansComponent,
+    SwitchingPlansNewComponent,
   ],
   imports: [
     HttpClientModule,

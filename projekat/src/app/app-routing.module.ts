@@ -19,16 +19,18 @@ import { WorkRequestsBasicInfoComponent } from './work-requests-new/work-request
 import { WorkRequestsHistoryComponent } from './work-requests-new/work-requests-history/work-requests-history.component';
 import { WorkRequestsMultimediaComponent } from './work-requests-new/work-requests-multimedia/work-requests-multimedia.component';
 import { WorkRequestsEquipmentComponent } from './work-requests-new/work-requests-equipment/work-requests-equipment.component';
+import { UnregisteredGuard } from './guards/unregistered.guard';
+import { WorkerGuard } from './guards/worker.guard';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'incident-browser', component: IncidentBrowserComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [UnregisteredGuard] },
+  { path: 'incident-browser', component: IncidentBrowserComponent, canActivate: [UnregisteredGuard] },
   { path: 'register', component: RegisterComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent},
-  { path: 'incident-new', component: IncidentNewComponent, children: [
+  //{ path: 'login', component: LoginComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [UnregisteredGuard]},
+  { path: 'incident-new', component: IncidentNewComponent, canActivate: [UnregisteredGuard, WorkerGuard], children: [
     { path: 'incident-basic-info', component: IncidentBasicInfoComponent },
     { path: 'incident-devices', component: IncidentDevicesComponent },
     { path: 'incident-resolution', component: IncidentResolutionComponent },

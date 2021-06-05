@@ -87,14 +87,14 @@ namespace WebApp.Controllers
             {
                 if((await _userManager.ChangePasswordAsync(temp, model.currentPassword, model.body.Password)).Succeeded)
                 {
-                    return Ok(new { msg = "ok" });
+                    return Ok(new { msg = "changedpass" });
                 }
                 else
                 {
                     return Ok(new { msg = "error" });
                 }
             }
-            return Ok();
+            return Ok(new { msg="ok" });
         }
 
         [HttpGet]

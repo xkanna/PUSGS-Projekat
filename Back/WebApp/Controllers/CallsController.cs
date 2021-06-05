@@ -77,7 +77,7 @@ namespace WebApp.Controllers
 
             foreach(Incident inc in data.Incidents)
             {
-                if (inc.Devices != null)
+                if (inc.Devices != null)//ako ovo ostane null morace nekako manualno da se azurira
                 {
                     foreach (IncidentDevice d in inc.Devices)
                     {

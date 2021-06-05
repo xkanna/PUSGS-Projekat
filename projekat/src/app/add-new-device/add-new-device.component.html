@@ -10,7 +10,7 @@
           <td>
             <mat-form-field >
               <mat-label>Type:</mat-label>
-              <mat-select>
+              <mat-select [(ngModel)]="selectedType" (selectionChange)="onCauseChange($event)">
                 <mat-option value="Switch">Switch</mat-option>
                 <mat-option value="Transformator">Transformator</mat-option>
                 <mat-option value="Fuse">Fuse</mat-option>
@@ -20,24 +20,7 @@
           </td>
     
         </tr>
-        <tr>
-    
-            <td>
-              <p>Id:</p>
-            </td>
-      
-            <td>
-              <div>
-                <p>
-                  <mat-form-field appearance="outline">
-                    <mat-label></mat-label>
-                    <input matInput placeholder="Id">
-                  </mat-form-field>
-                </p>
-              </div>
-            </td>
-      
-          </tr>
+        
           <tr>
     
             <td>
@@ -49,7 +32,7 @@
                 <p>
                   <mat-form-field appearance="outline">
                     <mat-label></mat-label>
-                    <input matInput placeholder="Name">
+                    <input matInput placeholder="Name" [(ngModel)]="name" readonly>
                   </mat-form-field>
                 </p>
               </div>
@@ -66,9 +49,13 @@
             <td>
               <div>
                 <p>
-                  <mat-form-field appearance="outline">
-                    <mat-label></mat-label>
-                    <input matInput placeholder="Address">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Select Address</mat-label>
+                    <mat-select [(ngModel)]="selectedStreet">
+                      <mat-option *ngFor="let item of streets" [value]="item.name">
+                        {{item.name}}
+                      </mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </p>
               </div>
@@ -93,6 +80,6 @@
             </td>
       
           </tr>
-          <td><button class="btn-regular">Add</button></td>
+          <td><button class="btn-regular" (click)="onSubmit()">Add</button></td>
     </table>
     </body>

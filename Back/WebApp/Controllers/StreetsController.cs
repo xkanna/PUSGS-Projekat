@@ -29,6 +29,7 @@ namespace WebApp.Controllers
         }
         // GET: api/<StreetsController>
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<Street>>> Get()
         {
             //if (data.Streets.Count() == 1)

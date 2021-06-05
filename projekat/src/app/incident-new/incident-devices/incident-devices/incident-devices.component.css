@@ -1,32 +1,50 @@
-.incident-additional {
+  .incident-additional 
+  {
     position: absolute;
     left: 310px;
-    border: 4px solid #07171e;
+    border: 4px solid #f86f1a;
     border-radius: 25px;
     width: 900px;
     height: 600px;
     color:#07171e;
     padding: 0 20px;
     box-sizing: border-box;
-    background-color: #f86f1a;
-}
+    background-color: #07171e;
+  }
 
-p, h1, h2, h3, h4, h5 
-{
+  p, h1, h2, h3, h4, h5 
+  {
     margin: 0;
-    font-family: sans-serif;
-    color: #07171e;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f86f1a;
     padding: 20px;   
-}
-table {
+  }
+
+  table
+  {
     width: 100%;
+    background-color: #f86f1a; 
   }
   
-  .mat-form-field {
+  .mat-form-field 
+  {
     font-size: 14px;
     width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #f86f1a;
   }
   
-  td, th {
+  td, th 
+  {
     width: 25%;
+    background-color: #f86f1a;
+  }
+
+  mat-paginator
+  {
+    background-color: #f86f1a;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
   }

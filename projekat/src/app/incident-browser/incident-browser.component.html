@@ -1,17 +1,19 @@
 <body>
-    <div class="buttons">
-        <button class="btn-regular">Filter</button>
-        <button class="btn-regular">All</button>
-        <button class="btn-regular">Mine</button>
-        <button class="btn-regular"><a href="/incident-new">New</a>></button>
-    </div>
+    <table class="buttons" id="dugmici" >
+      <tr>
+        <td><button class="btn-regular">Filter</button></td>
+        <td><button class="btn-regular">All</button></td>
+        <td><button class="btn-regular">Mine</button></td>
+        <td><button class="btn-regular"><a href="/incident-new">New</a>></button></td>
+      </tr>
+    </table>
     <mat-form-field>
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
       </mat-form-field>
       
       <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
+        <table mat-table [dataSource]="dataSource" matSort id="tab">
       
           <!-- ID Column -->
           <ng-container matColumnDef="id">

@@ -72,6 +72,7 @@ import { DeviceModalComponent } from './device-modal/device-modal.component';
 import { CallsComponent } from './calls/calls.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { AddNewDeviceComponent } from './add-new-device/add-new-device.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -148,6 +149,7 @@ import { AddNewDeviceComponent } from './add-new-device/add-new-device.component
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    ChartsModule,
   ],
   exports:[
     MatAutocompleteModule,
@@ -188,6 +190,7 @@ import { AddNewDeviceComponent } from './add-new-device/add-new-device.component
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    ChartsModule,
   ],
   providers: [
     UnregisteredGuard,

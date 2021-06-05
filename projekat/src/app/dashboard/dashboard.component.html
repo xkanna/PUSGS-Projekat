@@ -137,14 +137,32 @@
         </div>
 
         <div class="dashboard2">
-            <div class="chart" style="width: 65%">
+            <div class="chart" style="width: 50%">
                 <h2> INCIDENTS</h2>
                 <i class="fas fa-cog" ></i>
-                <p>ovde ce da bude chart</p>
+                <div style="display: block;">
+                    <canvas baseChart width="400" height="200"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [colors]="lineChartColors"
+                      [legend]="lineChartLegend"
+                      [chartType]="lineChartType"
+                      [plugins]="lineChartPlugins">
+                    </canvas>
+                  </div>
             </div>
-            <div class="chart" style="width: 31%">
+            <div class="chart" style="width: 50%">
                 <h2> DOCUMENTS</h2>
-                <p>ovde ce da bude drugi chart</p>
+                <div >
+                    <canvas baseChart 
+                      [data]="pieChartData" 
+                      [labels]="pieChartLabels" 
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins"
+                      [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
             </div>
         </div>
     </div>

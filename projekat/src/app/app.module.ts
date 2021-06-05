@@ -69,6 +69,7 @@ import { WorkRequestsEquipmentComponent } from './work-requests-new/work-request
 import {UnregisteredGuard} from './guards/unregistered.guard';
 import {WorkerGuard} from './guards/worker.guard';
 import { DeviceModalComponent } from './device-modal/device-modal.component';
+import { CallsComponent } from './calls/calls.component';
 
 
 
@@ -97,6 +98,7 @@ import { DeviceModalComponent } from './device-modal/device-modal.component';
     WorkRequestsMultimediaComponent,
     WorkRequestsEquipmentComponent,
     DeviceModalComponent,
+    CallsComponent,
   ],
   imports: [
     HttpClientModule,

@@ -13,4 +13,6 @@ export class IncidentBasicInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }

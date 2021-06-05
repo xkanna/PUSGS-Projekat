@@ -36,7 +36,7 @@ namespace WebApp.Controllers
         {
             if (await auth.Users.FirstOrDefaultAsync(x => x.Id == User.Claims.First(x => x.Type == "UserID").Value) !=null)
             {
-                return Ok(data.Incidents);
+                return Ok(new { list = data.Incidents.ToList() });
             }
             else
             {

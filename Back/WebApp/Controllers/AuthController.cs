@@ -55,7 +55,7 @@ namespace WebApp.Controllers
                         new Claim("UserID", user.Id.ToString()),
                         new Claim("Role", user.Role),
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddDays(1),
                     //Key min: 16 characters
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                 };
@@ -71,20 +71,29 @@ namespace WebApp.Controllers
         [HttpPost]
         [Route("EditProfile")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> EditProfile([FromBody] UserDTO model, [FromBody] string currentPassword)
+        public async Task<IActionResult> EditProfile(EditProfileDTO model)
         {
             string id = User.Claims.First(x => x.Type == "UserID").Value;
             User temp = await _userManager.FindByIdAsync(id);
-            temp.FullName = model.FullName;
-            temp.UserName = model.Username;
-            temp.Role = model.Role;
-            temp.Email = model.Email;
-            temp.CrewID = model.CrewID;
-            temp.StreetID = (await data.Streets.FirstOrDefaultAsync(x => x.Name == model.Street)).Id;
-            temp.DOB = model.DOB;
+            temp.FullName = model.body.FullName;
+            temp.UserName = model.body.Username;
+            temp.Role = model.body.Role;
+            temp.Email = model.body.Email;
+            temp.CrewID = model.body.CrewID;
+            temp.StreetID = (await data.Streets.FirstOrDefaultAsync(x => x.Name == model.body.Street)).Id;
+            temp.DOB = model.body.DOB;
             await _userManager.UpdateAsync(temp);
-            await _userManager.ChangePasswordAsync(temp, currentPassword, model.Password);
-            //proveriti dal je uspesno, ako nije vrv vratiti neki status code
+            if (!string.IsNullOrWhiteSpace(model.body.Password))
+            {
+                if((await _userManager.ChangePasswordAsync(temp, model.currentPassword, model.body.Password)).Succeeded)
+                {
+                    return Ok(new { msg = "ok" });
+                }
+                else
+                {
+                    return Ok(new { msg = "error" });
+                }
+            }
             return Ok();
         }
 
@@ -105,7 +114,7 @@ namespace WebApp.Controllers
                 DOB = temp.DOB,
 
             };
-            return Ok(retval);
+            return Ok(new { retval });
         }
 
         //[HttpGet]

@@ -18,6 +18,7 @@ export class UserService {
 
   editProfile(body:any, curPass:string){
     var currentPassword:string = curPass;
+    console.log({body , currentPassword });
     return this.http.post(this.baseUrl + "EditProfile", {body , currentPassword });
   }
 

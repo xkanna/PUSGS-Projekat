@@ -214,6 +214,7 @@ import { SwitchingPlansNewComponent } from './switching-plans-new/switching-plan
     WorkerGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
+  entryComponents: [DeviceModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

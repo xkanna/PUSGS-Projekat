@@ -31,13 +31,15 @@ namespace WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Street>>> Get()
         {
-            data.Streets.Add(new Street { Name = "Miki Maus", Priority = 5 });
-            await data.SaveChangesAsync();
-            string h = SecurePasswordHasher.GetStringSha256Hash("leska");
-            User temp = new User("Leska", h, "Matic Aleksa", new DateTime(1999, 2, 20), "Admin", 0, 0, "aleksa.matic408@gmail.com");
-            auth.Users.Add(temp);
-            await auth.SaveChangesAsync();
-            Console.WriteLine(h);
+            //if (data.Streets.Count() == 1)
+            //{
+            //    data.Streets.Add(new Street() { Name = "Bulevar Oslobodjenja", Priority = 8 });
+            //    data.Streets.Add(new Street() { Name = "Maksima Gorkog", Priority = 6 });
+            //    data.Streets.Add(new Street() { Name = "Presernova", Priority = 2 });
+            //    data.Streets.Add(new Street() { Name = "Jevrejska", Priority = 6 });
+            //    data.Streets.Add(new Street() { Name = "Heroja Pinkija", Priority = 6 });
+            //    await data.SaveChangesAsync();
+            //}
             return await data.Streets.ToListAsync();
         }
 

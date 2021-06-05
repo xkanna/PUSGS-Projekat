@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Incident } from 'src/app/models/incident.model';
 import { IncidentService } from 'src/app/services/incident-service/incident.service';
 
@@ -9,7 +10,9 @@ import { IncidentService } from 'src/app/services/incident-service/incident.serv
 })
 export class IncidentBasicInfoComponent implements OnInit {
 
-  private inc!:Incident
+  registerForm!: FormGroup;
+
+  public inc!:Incident
 
   constructor(private service:IncidentService) {  }
 
@@ -17,6 +20,17 @@ export class IncidentBasicInfoComponent implements OnInit {
     this.inc = this.service.currentIncident;//curr incident mora da se reset, vrv kad se klikne new ili mozda edit ako imamo
   }
 
+  private initForm() {
+    this.registerForm = new FormGroup({
+      'date': new FormControl(''),
+      'date1': new FormControl(''),
+      'voltage': new FormControl(''),
+      'description': new FormControl(''),
+      'date2': new FormControl(''),
+      'date3': new FormControl(''),
+      'date4': new FormControl(''),
 
+    });
+  }
 
 }

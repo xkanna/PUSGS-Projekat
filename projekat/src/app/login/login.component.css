@@ -1,8 +1,8 @@
 h1, h2, h4, h5 
 {
     margin: 0;
-    font-family: sans-serif;
-    color: #319197;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f86f1a;
     padding: 20px;   
 }
 
@@ -11,8 +11,8 @@ h3
     /*nacentrirati naslov*/
     font-size: 23px;
     margin: 0;
-    font-family: sans-serif;
-    color: #319197;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f86f1a;
     padding: 20px; 
     text-align: center;
     font-style: bold;
@@ -20,8 +20,8 @@ h3
 
 p{
 margin: 0;
-font-family: sans-serif;
-color: #319197;
+font-family: Arial, Helvetica, sans-serif;
+color: #f86f1a;
 padding: 10px;
 text-align: center;
 font-style: italic;

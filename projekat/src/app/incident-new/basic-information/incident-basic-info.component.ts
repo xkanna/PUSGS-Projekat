@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Incident } from 'src/app/models/incident.model';
+import { IncidentService } from 'src/app/services/incident-service/incident.service';
 
 @Component({
   selector: 'incident-basic-info',
@@ -7,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncidentBasicInfoComponent implements OnInit {
 
-  constructor() {
-   }
+  private inc!:Incident
+
+  constructor(private service:IncidentService) {  }
 
   ngOnInit(): void {
+    this.inc = this.service.currentIncident;//curr incident mora da se reset, vrv kad se klikne new ili mozda edit ako imamo
   }
 
-  
+
 
 }

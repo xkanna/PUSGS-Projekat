@@ -2,6 +2,8 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Incident } from '../models/incident.model';
+import { IncidentService } from '../services/incident-service/incident.service';
 
 export interface UserData {
   id: string;
@@ -28,23 +30,28 @@ const NAMES: string[] = [
   templateUrl: 'incident-browser.component.html',
 })
 export class IncidentBrowserComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['id', 'type', 'priority', 'scheduledTime'];
+  dataSource!: MatTableDataSource<Incident>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(private service:IncidentService) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    //this.dataSource = new MatTableDataSource(users);
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.service.getIncidents().subscribe(
+      (res:any)=>{
+        this.dataSource = res.list;
+      }
+    )
   }
 
   applyFilter(event: Event) {

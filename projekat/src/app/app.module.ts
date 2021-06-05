@@ -190,6 +190,7 @@ import { CallsComponent } from './calls/calls.component';
     WorkerGuard,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
+  entryComponents: [DeviceModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

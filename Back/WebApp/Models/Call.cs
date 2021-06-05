@@ -15,6 +15,6 @@ namespace WebApp.Models
         public string Comment { get; set; }
         public string Hazard { get; set; }
         public Street Street { get; set; } // iz ulice se dobija prioritet
-        public Guid UserID { get; set; }
+        public string UserID { get; set; }
     }
 }

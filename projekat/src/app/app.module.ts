@@ -66,7 +66,6 @@ import { WorkRequestsHistoryComponent } from './work-requests-new/work-requests-
 import { WorkRequestsMultimediaComponent } from './work-requests-new/work-requests-multimedia/work-requests-multimedia.component';
 import { WorkRequestsEquipmentComponent } from './work-requests-new/work-requests-equipment/work-requests-equipment.component';
 
-import {HTTP_INTERCEPTORS} from '@angular/common/http'
 import {UnregisteredGuard} from './guards/unregistered.guard';
 import {WorkerGuard} from './guards/worker.guard';
 import { DeviceModalComponent } from './device-modal/device-modal.component';

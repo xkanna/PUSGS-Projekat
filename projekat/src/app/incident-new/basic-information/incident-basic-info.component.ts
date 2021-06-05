@@ -18,6 +18,7 @@ export class IncidentBasicInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.inc = this.service.currentIncident;//curr incident mora da se reset, vrv kad se klikne new ili mozda edit ako imamo
+    this.initForm();
   }
 
   private initForm() {

@@ -11,12 +11,10 @@
     color:#319197;
     padding: 0 20px;
     box-sizing: border-box;
-    
-    
-    overflow:scroll;
-    overflow-x:hidden;
-    overflow-y:auto;
-    
+      
+    overflow-y: scroll;
+
+  
 }
 
 
@@ -57,3 +55,4 @@ left: 150px;
  text-align: left;
 
 }
+

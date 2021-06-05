@@ -19,12 +19,14 @@ p, h1, h2, h3, h4, h5 {
     /* transform: translate(-50%, -10%); */  /* NE STAVLJATI OVE STVARI POGOTOVO NE FIXED I ABSOLUTE NA BODY */
     overflow-y: scroll;
     overflow: hidden;
-    background-color: #07171e;
+    background-color: #00202e;
     text-align:center;
     margin: 0 auto;
   }
   .my-table {
-    background-color: #8d274a; 
+    background-color: #07171e; 
+    border-radius: 10px;
+    
   }
 
 .dashboard1 {
@@ -43,19 +45,20 @@ p, h1, h2, h3, h4, h5 {
 }
 
 .my-table thead th {
-    background: #8d274a;
-    color: #07171e; 
-    
-    
-    
+    background: #07171e;
+    color: #f86f1a; 
+    border-radius: 10px;
+    border: 6px solid #07171e;   
     
 }
 
 .my-table tbody td {
-    background: #319097b0;
-    color: #07171e;    
+    background: #f86f1a;
+    color: #00202e;    
     width: 150px;
     height: 35px;
+    border-radius: 1px;
+    border-radius: 5px;
     
 }
 
@@ -63,12 +66,15 @@ p, h1, h2, h3, h4, h5 {
 
 
 .chart{
-  background-color: #319097b0 ;
+  background-color: #f86f1a ;
   width: 480px;
   height: 300px;
   margin-top: 5px;
-  border-color: #8d274a;
+  border-color: #07171e;
   justify-content: space-between;
+  border-radius: 10px;
+  border: 4px solid #07171e;
+  text-align: left;
 }
 
 

@@ -10,9 +10,15 @@
       <td>
         <div>
           <p>
-            <mat-form-field appearance="outline">
-              <mat-label></mat-label>
-              <input matInput placeholder="Reason">
+            <mat-form-field appearance="fill">
+              <mat-label>Select Reason</mat-label>
+              <mat-select [(ngModel)]="selectedReason">
+                <mat-option value="Outage">Outage</mat-option>
+                <mat-option value="Hazard">Hazard</mat-option>
+                <mat-option value="Blinking Light">Blinking Light</mat-option>
+                <mat-option value="Power Restored">Power Restored</mat-option>
+                <mat-option value="Voltage Problems">Voltage Problems</mat-option>
+              </mat-select>
             </mat-form-field>
           </p>
         </div>
@@ -30,7 +36,7 @@
             <p>
               <mat-form-field appearance="outline">
                 <mat-label></mat-label>
-                <input matInput placeholder="Comment">
+                <input matInput placeholder="Comment" [(ngModel)]="comment">
               </mat-form-field>
             </p>
           </div>
@@ -48,7 +54,7 @@
             <p>
               <mat-form-field appearance="outline">
                 <mat-label></mat-label>
-                <input matInput placeholder="Hazard">
+                <input matInput placeholder="Hazard" [(ngModel)]="hazard">
               </mat-form-field>
             </p>
           </div>
@@ -65,15 +71,19 @@
         <td>
           <div>
             <p>
-              <mat-form-field appearance="outline">
-                <mat-label></mat-label>
-                <input matInput placeholder="Address">
+              <mat-form-field appearance="fill">
+                <mat-label>Select Address</mat-label>
+                <mat-select [(ngModel)]="selectedStreet">
+                  <mat-option *ngFor="let item of streets" [value]="item.name">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </p>
           </div>
         </td>
   
       </tr>
-      <td><button class="btn-regular">Add</button></td>
+      <td><button class="btn-regular" (click)="onSubmit()">Add</button></td>
 </table>
 </body>

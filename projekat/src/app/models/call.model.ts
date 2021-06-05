@@ -1,7 +1,7 @@
 export class Call {
     id!:number;
     reason!:string;
-    commend!:string;
+    comment!:string;
     hazard!:string;
     street!:string;
     userId!:string;

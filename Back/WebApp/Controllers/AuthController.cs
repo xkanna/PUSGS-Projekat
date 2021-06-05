@@ -62,7 +62,7 @@ namespace WebApp.Controllers
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var securityToken = tokenHandler.CreateToken(tokenDescriptor);
                 var token = tokenHandler.WriteToken(securityToken);
-                return Ok(new { token, role = user.Role, name=user.FullName });
+                return Ok(new { token, role = user.Role, name=user.FullName, userId = user.Id.ToString() });
             }
             else
                 return BadRequest(new { message = "Username or password is incorrect." });

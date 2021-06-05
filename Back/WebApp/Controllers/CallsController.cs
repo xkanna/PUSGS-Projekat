@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using WebApp.DTOs;
 using WebApp.Models;
@@ -46,7 +49,8 @@ namespace WebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public async ICollection<Call> GetCallsForIncidentId(int id)
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public ICollection<Call> GetCallsForIncidentId(int id)
         {
             Incident temp = data.Incidents.FirstOrDefault(x => x.Id == id);
             return temp.Calls;
@@ -73,12 +77,15 @@ namespace WebApp.Controllers
 
             foreach(Incident inc in data.Incidents)
             {
-                foreach(IncidentDevice d in inc.Devices)
+                if (inc.Devices != null)
                 {
-                    if(d.Device.Street == temp.Street)
+                    foreach (IncidentDevice d in inc.Devices)
                     {
-                        inc.Calls.Add(temp);
-                        break;
+                        if (d.Device.Street == temp.Street)
+                        {
+                            inc.Calls.Add(temp);
+                            break;
+                        }
                     }
                 }
             }

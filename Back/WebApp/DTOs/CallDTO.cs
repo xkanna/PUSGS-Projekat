@@ -7,11 +7,9 @@ namespace WebApp.DTOs
 {
     public class CallDTO
     {
-        public int Id { get; set; }
         public string Reason { get; set; }
         public string Comment { get; set; }
         public string Hazard { get; set; }
         public string Street { get; set; }
-        public string UserId { get; set; }
     }
 }

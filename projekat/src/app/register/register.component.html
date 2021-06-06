@@ -82,7 +82,7 @@
                         </mat-form-field>
                 </div>
 
-                <div *ngIf="selectedRole=='Crew Member'">
+                <div class="selectCrew" *ngIf="selectedRole=='Crew Member'">
                     <mat-form-field appearance="fill">
                     <mat-label>Select Crew</mat-label>
                     <mat-select [(ngModel)]="selectedCrew">
@@ -93,8 +93,8 @@
                     </mat-form-field>
                 </div>
 
-                <div class="registration-submit">
-                    <button mat-button (click)="onSubmit()">Register</button>
+                <div class="registration-submit" >
+                    <button mat-button (click)="onSubmit()" >Register</button>
                     
                 </div>
             

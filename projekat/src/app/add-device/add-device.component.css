@@ -17,26 +17,27 @@ body
 }
 
 .btn-regular {
-    background: #07171e;
-    color: #f86f1a;
-    border: none;
-    border-radius: 10px;
-    display: inline-block;
-    text-align: center;
-    padding: 10px 35px;
-    font-weight: 600;  
-    margin-top: 100px;
-    left:5%;
-    
-    
+  background: #07171e;
+  color: #f86f1a;
+  border: none;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 35px;
+  font-weight: 600;  
+  margin-top: 100px;
+  left:5%;
+  border-bottom:2px solid #f86f1a;
+  
+  
 }
 
 
 
 .btn-regular:hover {
-    color: #00202e;
-    text-decoration: none;
-    background: #319197;
+  color: #00202e;
+  text-decoration: none;
+  background: #319197;
 }
 
 table {

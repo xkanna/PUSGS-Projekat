@@ -33,6 +33,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #f86f1a;
+    border-bottom:4px solid #07171e;
   }
   
   td, th 
@@ -48,3 +49,22 @@
     border-bottom-right-radius: 10px;
     
   }
+
+  .btn-regular {
+    background: #00202e;
+    color: #f86f1a;
+    border-bottom:4px solid #07171e;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    
+    font-weight: 600;  
+    margin:10px;
+  
+}
+
+.btn-regular:hover {
+    color: #00202e;
+    text-decoration: none;
+    background: #319197;
+}

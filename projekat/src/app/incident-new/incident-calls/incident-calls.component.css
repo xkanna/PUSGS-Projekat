@@ -33,6 +33,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #f86f1a;
+    border-bottom:4px solid #07171e;
   }
   
   td, th 

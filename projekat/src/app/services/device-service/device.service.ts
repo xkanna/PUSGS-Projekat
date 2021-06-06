@@ -17,4 +17,12 @@ export class DeviceService {
   addDevice(body:Device){
     return this.http.post(this.baseUrl, body);
   }
+
+  getDevices(){
+    return this.http.get(this.baseUrl);
+  }
+
+  getDeviceByName(name:string){
+    return this.http.get(this.baseUrl + "GetDeviceByName/" + name);
+  }
 }

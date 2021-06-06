@@ -48,13 +48,13 @@ namespace WebApp.Controllers
             return "value";
         }
 
-        [HttpGet("{id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public ICollection<Call> GetCallsForIncidentId(int id)
-        {
-            Incident temp = data.Incidents.FirstOrDefault(x => x.Id == id);
-            return temp.Calls;
-        }
+        //[HttpGet("{id}")]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //public ICollection<Call> GetCallsForIncidentId(int id)
+        //{
+        //    Incident temp = data.Incidents.FirstOrDefault(x => x.Id == id);
+        //    return temp.Calls;
+        //}
 
         // POST api/<CallsController>
         [HttpPost]
@@ -75,20 +75,20 @@ namespace WebApp.Controllers
             temp.Comment = body.Comment;
             data.Calls.Add(temp);
 
-            foreach(Incident inc in data.Incidents)
-            {
-                if (inc.Devices != null)//ako ovo ostane null morace nekako manualno da se azurira
-                {
-                    foreach (IncidentDevice d in inc.Devices)
-                    {
-                        if (d.Device.Street == temp.Street)
-                        {
-                            inc.Calls.Add(temp);
-                            break;
-                        }
-                    }
-                }
-            }
+            //foreach(Incident inc in data.Incidents)
+            //{
+            //    if (inc.Devices != null)//ako ovo ostane null morace nekako manualno da se azurira
+            //    {
+            //        foreach (IncidentDevice d in inc.Devices)
+            //        {
+            //            if (d.Device.Street == temp.Street)
+            //            {
+            //                inc.Calls.Add(temp);
+            //                break;
+            //            }
+            //        }
+            //    }
+            //}
 
             await data.SaveChangesAsync();
             return Ok();

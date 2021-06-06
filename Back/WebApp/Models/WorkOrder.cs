@@ -14,18 +14,18 @@ namespace WebApp.Models
         public int Id { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
-        public Incident Incident { get; set; }
-        public Street Street { get; set; }
+        public virtual Incident Incident { get; set; }
+        public virtual Street Street { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public Guid UserID { get; set; } //od id izvuci fullname i br telefona
+        public string UserID { get; set; } //od id izvuci fullname i br telefona
         public string Purpose { get; set; }
         public string Notes { get; set; }
         public bool Emergency { get; set; }
         public string Company { get; set; }
         public DateTime DateCreated { get; set; }
-        public ICollection<WorkPlan> WorkPlans { get; set; }
-        public ICollection<WorkOrderDevice> Devices { get; set; }
-        public ICollection<HistoricChange> History { get; set; }
+        public virtual ICollection<WorkPlan> WorkPlans { get; set; }
+        public virtual ICollection<WorkOrderDevice> Devices { get; set; }
+        public virtual ICollection<HistoricChange> History { get; set; }
     }
 }

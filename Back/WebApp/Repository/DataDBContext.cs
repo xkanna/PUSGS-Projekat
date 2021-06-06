@@ -15,6 +15,11 @@ namespace WebApp.Repository
 
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         public DbSet<Street> Streets { get; set; }
         public DbSet<Call> Calls { get; set; }
         public DbSet<Incident> Incidents { get; set; }

@@ -11,7 +11,7 @@ namespace WebApp.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Guid UserID { get; set; }
+        public string UserID { get; set; }
         public string State { get; set; }
         public DateTime Timestamp { get; set; }
     }

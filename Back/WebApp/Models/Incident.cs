@@ -26,9 +26,9 @@ namespace WebApp.Models
         public string ConstructionType { get; set; }
         public string Material { get; set; }
         //dodeli sebi na resavanje, mozda polje kom useru je dodeljeno; broj poziva? vidi se lepo u calls tabu idk, multimedia attachment?
-        public virtual ICollection<Call> Calls { get; set; }
+        //public virtual ICollection<Call> Calls { get; set; }
         public virtual ICollection<IncidentDevice> Devices { get; set; }
         public virtual ICollection<WorkOrder> WorkOrders { get; set; }
-        public Crew Crew { get; set; }
+        public virtual Crew Crew { get; set; }
     }
 }

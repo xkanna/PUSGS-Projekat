@@ -14,7 +14,7 @@ namespace WebApp.Models
         public string Reason { get; set; }
         public string Comment { get; set; }
         public string Hazard { get; set; }
-        public Street Street { get; set; } // iz ulice se dobija prioritet
+        public virtual Street Street { get; set; } // iz ulice se dobija prioritet
         public string UserID { get; set; }
     }
 }

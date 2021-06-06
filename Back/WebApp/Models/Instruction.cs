@@ -11,8 +11,8 @@ namespace WebApp.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Descriptio { get; set; }
+        public string Description { get; set; }
         public string Status { get; set; }
-        public Device Device { get; set; }
+        public virtual Device Device { get; set; }
     }
 }

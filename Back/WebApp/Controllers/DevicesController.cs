@@ -57,6 +57,14 @@ namespace WebApp.Controllers
             return Ok(new { newId = retval});
         }
 
+        [HttpGet]
+        [Route("GetDeviceByName/{name}")]
+        public IActionResult GetDeviceByName(string name)
+        {
+            Device temp = data.Devices.FirstOrDefault(x => x.Name == name);
+            return Ok(new { retval = new DeviceDTO() { Name=temp.Name, Street=temp.Street.Name, Type=temp.Type} });
+        }
+
         // POST api/<DevicesController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] DeviceDTO body)

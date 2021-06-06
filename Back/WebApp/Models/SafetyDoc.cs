@@ -13,9 +13,9 @@ namespace WebApp.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Type { get; set; }
-        public WorkPlan WorkPlan { get; set; }
+        public virtual WorkPlan WorkPlan { get; set; }
         public string Status { get; set; }
-        public Guid UserID { get; set; }
+        public string UserID { get; set; }
         public string Details { get; set; }
         public string Notes { get; set; }
         public DateTime DateCreated { get; set; }
@@ -23,7 +23,7 @@ namespace WebApp.Models
         public bool TagsRemoved { get; set; }
         public bool GroundingRemoved { get; set; }
         public bool Ready { get; set; }
-        public ICollection<SafetyDocDevice> Devices { get; set; }
-        public ICollection<HistoricChange> History { get; set; }
+        public virtual ICollection<SafetyDocDevice> Devices { get; set; }
+        public virtual ICollection<HistoricChange> History { get; set; }
     }
 }

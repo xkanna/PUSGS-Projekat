@@ -11,7 +11,7 @@ namespace WebApp.Models.NtoNClasses
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public WorkOrder WorkOrder { get; set; }
-        public Device Device { get; set; }
+        public virtual WorkOrder WorkOrder { get; set; }
+        public virtual Device Device { get; set; }
     }
 }

@@ -13,8 +13,9 @@ namespace WebApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Priority { get; set; }
-        public ICollection<Call> Calls { get; set; }
-        public ICollection<Consumer> Consumers { get; set; }
-        public ICollection<WorkOrder> WorkOrders { get; set; }
+        public virtual ICollection<Call> Calls { get; set; }
+        public virtual ICollection<Consumer> Consumers { get; set; }
+        public virtual ICollection<WorkOrder> WorkOrders { get; set; }
+        public virtual ICollection<Device> Devices { get; set; }
     }
 }

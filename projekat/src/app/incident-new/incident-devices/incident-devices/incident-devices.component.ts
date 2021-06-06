@@ -5,27 +5,10 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { DeviceModalComponent } from 'src/app/device-modal/device-modal.component';
 import { Device } from 'src/app/models/device.model';
+import { DeviceService } from 'src/app/services/device-service/device.service';
 import { IncidentService } from 'src/app/services/incident-service/incident.service';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry', 'lychee', 'kiwi', 'mango', 'peach', 'lime', 'pomegranate', 'pineapple'
-];
-const NAMES: string[] = [
-  'Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack', 'Charlotte', 'Theodore', 'Isla', 'Oliver',
-  'Isabella', 'Jasper', 'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'
-];
-
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
 @Component({
   selector: 'incident-devices',
   styleUrls: ['incident-devices.component.css'],
@@ -40,7 +23,7 @@ export class IncidentDevicesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private incidentService:IncidentService) {
+  constructor(public dialog: MatDialog, private incidentService:IncidentService, private deviceService:DeviceService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -51,20 +34,25 @@ export class IncidentDevicesComponent implements AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.selectedDeviceId = result;//oni salju konkretno animal iz modala u this.modal, mozda mora da se pazi ovde
+      console.log('The dialog was closed' + result);
+      this.deviceService.getDeviceByName(result).subscribe(
+        (res:any)=>{
+          this.incidentService.currentDevices.push(res.retval);
+          console.log(this.incidentService.currentDevices);
+        },
+        err=>{
+          console.log(err);
+        }
+      )
+      //this.selectedDeviceId = result;//oni salju konkretno animal iz modala u this.modal, mozda mora da se pazi ovde
     });
   }
   
 
   ngAfterViewInit() {
-    this.incidentService.getIncidents().subscribe(
-      (res:any)=>{
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      }
-    )
+      this.dataSource = new MatTableDataSource(this.incidentService.currentDevices);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

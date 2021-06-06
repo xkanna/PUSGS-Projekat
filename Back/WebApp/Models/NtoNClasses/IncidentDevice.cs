@@ -11,7 +11,7 @@ namespace WebApp.Models.NtoNClasses
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Incident Incident { get; set; }
-        public Device Device { get; set; }
+        public virtual Incident Incident { get; set; }
+        public virtual Device Device { get; set; }
     }
 }

@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import {Crew} from '../models/crew.model';
 import {RegisterUser} from '../models/registerUser.model'
 import { TeamService } from '../services/team-service/team.service';
-import {UserService} from '../services/user-service/user.service'
+import {UserService} from '../services/user-service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,7 @@ registerForm!: FormGroup;
 
   url:any;
 
-  constructor(private userService: UserService, private router:Router, private teamService:TeamService) { }
+  constructor(private userService: UserService, private router:Router, private teamService:TeamService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.teamService.getCrews().subscribe(
@@ -72,9 +73,11 @@ registerForm!: FormGroup;
         this.registerForm.reset();
         console.log("worked");
         this.router.navigateByUrl('/');
+        this.toastr.success('You succesfully registered!');
       },
       err=>{
         console.log(err);
+        this.toastr.error('Something went wrong');
       }
     );
   }

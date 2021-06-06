@@ -3,6 +3,7 @@ import { Device } from '../models/device.model';
 import { Street } from '../models/street.model';
 import { DeviceService } from '../services/device-service/device.service';
 import { StreetService } from '../services/street-service/street.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'add-new-device',
@@ -16,7 +17,7 @@ export class AddNewDeviceComponent implements OnInit {
   streets!:Street[];
   selectedStreet!:string;
 
-  constructor(private streetService:StreetService, private deviceService:DeviceService) { 
+  constructor(private streetService:StreetService, private deviceService:DeviceService,private toastr: ToastrService) { 
     streetService.getStreets().subscribe(
       (res:any)=>{
         this.streets = res.retval;
@@ -43,9 +44,11 @@ export class AddNewDeviceComponent implements OnInit {
       (res:any)=>{
         //toster pop up gj u did it
         this.refreshName();
+        this.toastr.success('You added new device!');
       },
       err=>{
         console.log(err);
+        this.toastr.error('Something went wrong');
       }
     )
   }
@@ -54,6 +57,7 @@ export class AddNewDeviceComponent implements OnInit {
     this.deviceService.getNextId(this.selectedType).subscribe(
       (res:any)=>{
         this.name = res.newId;
+        this.toastr.info('Name refreshed');
       },
       err=>{
         console.log(err);

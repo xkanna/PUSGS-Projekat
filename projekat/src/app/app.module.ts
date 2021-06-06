@@ -95,6 +95,8 @@ import { SafetyDocumentsEquipmentComponent } from './safety-documents-add/safety
 import { SafetyDocumentsChecklistComponent } from './safety-documents-add/safety-documents-checklist/safety-documents-checklist.component';
 import { TeamsComponent } from './teams/teams.component';
 
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -192,6 +194,7 @@ import { TeamsComponent } from './teams/teams.component';
     MatFormFieldModule,
     ChartsModule,
     DragDropModule,
+    ToastrModule.forRoot(),
   ],
   exports:[
     MatAutocompleteModule,

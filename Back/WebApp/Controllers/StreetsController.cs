@@ -56,6 +56,33 @@ namespace WebApp.Controllers
             return "value";
         }
 
+        [HttpPost]
+        [Route("GetPriorityForDevices")]
+        
+        public IActionResult GetPriorityForDevices(DeviceDTO [] body)
+        {
+            List<string> temp = new List<string>();
+            foreach(DeviceDTO d in body)
+            {
+                if (!temp.Contains(d.Street))
+                {
+                    temp.Add(d.Street);
+                }
+            }
+            int max = 0;
+            foreach(Street s in data.Streets)
+            {
+                if (temp.Contains(s.Name))
+                {
+                    if(s.Priority > max)
+                    {
+                        max = s.Priority;
+                    }
+                }
+            }
+            return Ok(new { max });
+        }
+
         // POST api/<StreetsController>
         [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

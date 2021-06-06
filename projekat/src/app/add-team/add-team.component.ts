@@ -3,6 +3,7 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 import { TeamService } from '../services/team-service/team.service';
 import { Crewmate } from '../models/crewmate.model';
 import { Crew } from '../models/crew.model';
+import { ToastrService } from 'ngx-toastr';
 
 /**
  * @title Drag&Drop connected sorting
@@ -18,7 +19,7 @@ export class AddTeamComponent {
   public selectedWorkers:Crewmate[] = [];
   public workers:Crewmate[] = [];
 
-  constructor(private service:TeamService){
+  constructor(private service:TeamService,private toastr: ToastrService){
     service.getFreeCrewmates().subscribe(
       (res:any)=>{
         console.log(res.list);
@@ -38,10 +39,11 @@ export class AddTeamComponent {
     this.service.addCrew(body).subscribe(
       (res:any)=>{
         console.log(body);
-        //alert toster uspesno
+        this.toastr.success('You added new crew!');
       },
       err=>{
         console.log(err);
+        this.toastr.error('Something went wrong');
       }
     )
   }

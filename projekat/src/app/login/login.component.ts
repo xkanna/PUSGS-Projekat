@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { LoginUser } from '../models/loginUser.model';
 import { UserService } from '../services/user-service/user.service';
-import {Router} from '@angular/router'
+import {Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private userService: UserService, private router:Router) { }
+  constructor(private userService: UserService, private router:Router, private toastr: ToastrService) { }
 
    ngOnInit(): void {
     this.initForm();
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         console.log('logged in');
         this.router.navigateByUrl('/dashboard');
+        this.toastr.success('You logged in!', 'Yay!');
       },
       err=>{
         console.log(err);

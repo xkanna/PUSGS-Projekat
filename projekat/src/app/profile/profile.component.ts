@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {Crew} from '../models/crew.model';
 import { RegisterUser } from '../models/registerUser.model';
 import { UserService } from '../services/user-service/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,7 @@ registerForm!: FormGroup;
 
   url:any;
 
-  constructor(private service:UserService, private router:Router) { }
+  constructor(private service:UserService, private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -85,6 +86,7 @@ registerForm!: FormGroup;
         if(res.msg === "changedpass"){
           localStorage.clear();
           this.router.navigateByUrl("/");
+          
         }else{
           if(res.msg==="ok"){
             this.loadData();
@@ -93,9 +95,11 @@ registerForm!: FormGroup;
             //eror pri promeni passa
           }
         }
+        this.toastr.success('You succesfully changed your profile!');
       },
       err=>{
         console.log(err);
+        this.toastr.error('Something went wrong');
       }
     )
     this.loadData();

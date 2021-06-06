@@ -6,18 +6,18 @@
 
             <h2 class="registration-header">Account</h2>
             <h2>Ovde treba da ispise podatke o korisniku i da omoguci izmenu</h2>
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="registerForm">
             
             
                 <div class="registration-first_name">
-                    <input type="text" placeholder="Katarina" formControlName="firstName">
+                    <input type="text" placeholder="First Name" formControlName="firstName">
                     <div *ngIf="registerForm.controls.firstName.invalid">
                         Please enter valid username
                     </div>
                 </div> 
 
                 <div class="registration-last_name">
-                    <input type="text" placeholder="Veljkovic" formControlName="lastName">
+                    <input type="text" placeholder="Last Name" formControlName="lastName">
                     <div *ngIf="registerForm.controls.lastName.invalid">
                         Please enter valid username
                     </div>
@@ -31,14 +31,14 @@
                 </div>
                 
                 <div class="registration-username">          
-                    <input type="text" placeholder="kaca" formControlName="username">
+                    <input type="text" placeholder="Username" formControlName="username">
                     <div *ngIf="registerForm.controls.username.invalid">
                         Please enter valid username
                     </div>
                 </div>
 
                 <div class="registration-email">
-                    <input type="text" placeholder="kaca@gmail.com" formControlName="email">
+                    <input type="text" placeholder="Email" formControlName="email">
                     <div *ngIf="registerForm.controls.email.invalid">
                         Please enter valid username
                     </div>
@@ -64,36 +64,34 @@
                         Please enter valid username
                     </div>
                 </div>
-
-                <div class="registration-role">
-                    <select formControlName="role" [(ngModel)]="selectedRole">
-                        <option value="" disabled selected hidden>Role</option>
-                        <option *ngFor="let r of roles" [value]="r">{{r}}</option>
-                    </select>
-                </div>
-
-                <div *ngIf="selectedRole=='Crew Member'" class="registration-crew">
-                    <select formControlName="crew" [(ngModel)]="selectedCrew">
-                        <option value="" disabled selected hidden>Crew</option>
-                        <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
-                    </select>
-                </div>
-
-                <div class="registration-file"> 
-                    <input type='file' (change)="onSelectFile($event)" formControlName="image">
-                    <br/>
-                    <img [src]="url" height="200"> 
-                </div>
-            
-
-                <div class="registration-submit">
-                    <button [disabled]="!registerForm.valid" type="register">Change</button>
-                    
-                </div>
-            
-            
             </form>
 
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Role</mat-label>
+                    <mat-select [(ngModel)]="selectedRole">
+                        <mat-option value="Dispatcher">Dispatcher</mat-option>
+                        <mat-option value="Crew Member">Crew Member</mat-option>
+                        <mat-option value="Worker">Worker</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+            </div>
+
+            <div *ngIf="selectedRole=='Crew Member'">
+                <mat-form-field appearance="fill">
+                <mat-label>Select Crew</mat-label>
+                <mat-select [(ngModel)]="selectedCrew">
+                    <mat-option *ngFor="let item of crews" [value]="item.id">
+                    {{item.name}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="registration-submit">
+                <button (click)="onSubmit()">Change</button>
+            </div>
+            
         </div>
         
     </div>

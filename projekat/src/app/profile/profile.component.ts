@@ -14,18 +14,8 @@ export class ProfileComponent implements OnInit {
 
 registerForm!: FormGroup;
 
-  roles: string[] = [
-    "Crew Member",
-    "Dispatcher",
-    "Worker"
-  ];
-
   selectedRole!:string;
-  crews: Crew[] = [
-    {id: 1, name: 'One', list:[]},
-    {id: 2, name: 'Two',list:[]}
-  ];
-
+  crews: Crew[] = [];
   selectedCrew!:Crew;
 
   url:any;
@@ -51,9 +41,9 @@ registerForm!: FormGroup;
           lastName:body.retval.fullName.split(' ')[1],
           date:body.retval.dob.split('T')[0],
           address:body.retval.street,
-          role:body.retval.role,
-          crew:body.retval.crewID
         });
+        this.selectedCrew = body.retval.crewID;
+        this.selectedRole = body.retval.role;
       },
       err=>{
         console.log(err);
@@ -71,8 +61,6 @@ registerForm!: FormGroup;
       'lastName': new FormControl(''),
       'date': new FormControl(''),
       'address': new FormControl(''),
-      'role': new FormControl(''),
-      'crew': new FormControl(''),
       'image': new FormControl(null)
     });
   }
@@ -85,8 +73,11 @@ registerForm!: FormGroup;
       FullName:this.registerForm.get('firstName')?.value + " " + this.registerForm.get('lastName')?.value,
       DOB:this.registerForm.get('date')?.value,
       Street:this.registerForm.get('address')?.value,
-      Role:this.registerForm.get('role')?.value,
-      CrewID:this.registerForm.get('role')?.value === "crew"? this.selectedCrew.id : -1 
+      Role:this.selectedRole,
+      CrewID:-1 
+    }
+    if(this.selectedRole==="Crew Member"){
+      body.CrewID = this.selectedCrew.id;
     }
     this.service.editProfile(body, this.registerForm.get('repeat')?.value).subscribe(
       (res:any)=>{

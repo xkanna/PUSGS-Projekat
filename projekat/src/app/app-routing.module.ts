@@ -43,6 +43,7 @@ import { SafetyDocumentsHistoryComponent } from './safety-documents-add/safety-d
 import { SafetyDocumentsMultimediaComponent } from './safety-documents-add/safety-documents-multimedia/safety-documents-multimedia.component';
 import { SafetyDocumentsEquipmentComponent } from './safety-documents-add/safety-documents-equipment/safety-documents-equipment.component';
 import { SafetyDocumentsChecklistComponent } from './safety-documents-add/safety-documents-checklist/safety-documents-checklist.component';
+import { TeamsComponent } from './teams/teams.component';
 
 
 const routes: Routes = [
@@ -93,6 +94,7 @@ const routes: Routes = [
     { path: 'safety-documents-equipment', component: SafetyDocumentsEquipmentComponent},
     { path: 'safety-documents-checklist', component: SafetyDocumentsChecklistComponent},
   ]},
+  { path: 'teams', component: TeamsComponent},
 ];
 
 @NgModule({

@@ -94,7 +94,7 @@ input[type="register"]
 
 
 .column {   
-    width: 100%;
+    width: 600px;
     height: 100%;
     border-radius: 25px;
     background: #07171e;
@@ -106,7 +106,33 @@ input[type="register"]
     background: #07171e;
 }
 
+.registration-submit
+{
+    font-size: 14px;
+    
+    width: 25%;
+    border-radius: 10px;
+    height: 50px;
+    background-color: #ffb336;
+    color:#07171e;
+    text-align: center;
+    margin-left: 37.5%;
+    
 
+
+}
+
+.mat-form-field 
+{
+  font-size: 14px;
+  align-content: center;
+  width: 25%;
+  border-radius: 10px;
+  height: 50px;
+  background-color: #ffb336;
+  text-align: center;
+  
+}
 
 
 

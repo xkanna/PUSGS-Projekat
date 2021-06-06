@@ -22,8 +22,8 @@ registerForm!: FormGroup;
 
   selectedRole!:string;
   crews: Crew[] = [
-    {id: 1, name: 'One'},
-    {id: 2, name: 'Two'}
+    {id: 1, name: 'One', list:[]},
+    {id: 2, name: 'Two',list:[]}
   ];
 
   selectedCrew!:Crew;

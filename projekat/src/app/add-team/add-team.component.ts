@@ -1,5 +1,8 @@
 import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { TeamService } from '../services/team-service/team.service';
+import { Crewmate } from '../models/crewmate.model';
+import { Crew } from '../models/crew.model';
 
 /**
  * @title Drag&Drop connected sorting
@@ -10,20 +13,38 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
   styleUrls: ['./add-team.component.css']
 })
 export class AddTeamComponent {
-  team = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
 
-  workers = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
+  public name!:string;
+  public selectedWorkers:Crewmate[] = [];
+  public workers:Crewmate[] = [];
+
+  constructor(private service:TeamService){
+    service.getFreeCrewmates().subscribe(
+      (res:any)=>{
+        console.log(res.list);
+        this.workers = res.list;
+      }
+    )
+  }
+
+  onSubmit(){
+    var body:Crew = new Crew();
+    body.id = -1;
+    body.list = [];
+    this.selectedWorkers.forEach(function(value){
+      body.list.push(value.username);
+    });
+    body.name = this.name;
+    this.service.addCrew(body).subscribe(
+      (res:any)=>{
+        console.log(body);
+        //alert toster uspesno
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

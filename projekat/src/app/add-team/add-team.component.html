@@ -42,11 +42,11 @@
                     <div
                       cdkDropList
                       #todoList="cdkDropList"
-                      [cdkDropListData]="team"
+                      [cdkDropListData]="selectedWorkers"
                       [cdkDropListConnectedTo]="[doneList]"
                       class="example-list"
                       (cdkDropListDropped)="drop($event)">
-                      <div class="example-box" *ngFor="let item of team" cdkDrag>{{item}}</div>
+                      <div class="example-box" *ngFor="let item of selectedWorkers" cdkDrag>{{item.fullName}}</div>
                     </div>
                   </div>
                   
@@ -60,7 +60,7 @@
                       [cdkDropListConnectedTo]="[todoList]"
                       class="example-list"
                       (cdkDropListDropped)="drop($event)">
-                      <div class="example-box" *ngFor="let item of workers" cdkDrag>{{item}}</div>
+                      <div class="example-box" *ngFor="let item of workers" cdkDrag>{{item.fullName}}</div>
                     </div>
                   </div>
             </td>
@@ -68,7 +68,7 @@
           <tr>
             
           <tr>
-            <td><button class="btn-regular">Add</button></td>
+            <td><button class="btn-regular" (click)="onSubmit()">Add</button></td>
           </tr>
     </table>
     </body>

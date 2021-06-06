@@ -22,8 +22,8 @@ registerForm!: FormGroup;
 
   selectedRole!:string;
   crews: Crew[] = [
-    {id: 1, name: 'One'},
-    {id: 2, name: 'Two'}
+    {id: 1, name: 'One', list:[]},
+    {id: 2, name: 'Two', list:[]}
   ];
 
   selectedCrew!:Crew;
@@ -62,7 +62,7 @@ registerForm!: FormGroup;
       DOB:this.registerForm.get('date')?.value,
       Street:this.registerForm.get('address')?.value,
       Role:this.registerForm.get('role')?.value,
-      CrewID:this.registerForm.get('role')?.value === "crew"? this.selectedCrew.id : -1 
+      CrewID:this.registerForm.get('role')?.value === "Crew Member"? this.selectedCrew.id : -1 
     };
 
     this.userService.register(body).subscribe(

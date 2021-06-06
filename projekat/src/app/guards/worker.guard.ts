@@ -7,7 +7,6 @@ export class WorkerGuard implements CanActivate {
     canActivate() {
       
       if(localStorage.Role==="Worker"){
-        console.log("wtf");
         this.router.navigateByUrl('/dashboard');
         return false;
       }

@@ -86,6 +86,13 @@ import { SwitchingPlansHistoryComponent } from './switching-plans-new/switching-
 import { SwitchingPlansMultimediaComponent } from './switching-plans-new/switching-plans-multimedia/switching-plans-multimedia.component';
 import { SwitchingPlansEquipmentComponent } from './switching-plans-new/switching-plans-equipment/switching-plans-equipment.component';
 import { SwitchingPlansChecklistComponent } from './switching-plans-new/switching-plans-checklist/switching-plans-checklist.component';
+import { SafetyDocumentsComponent } from './safety-documents/safety-documents.component';
+import { SafetyDocumentsAddComponent } from './safety-documents-add/safety-documents-add.component';
+import { SafetyDocumentsBasicInfoComponent } from './safety-documents-add/safety-documents-basic-info/safety-documents-basic-info.component';
+import { SafetyDocumentsHistoryComponent } from './safety-documents-add/safety-documents-history/safety-documents-history.component';
+import { SafetyDocumentsMultimediaComponent } from './safety-documents-add/safety-documents-multimedia/safety-documents-multimedia.component';
+import { SafetyDocumentsEquipmentComponent } from './safety-documents-add/safety-documents-equipment/safety-documents-equipment.component';
+import { SafetyDocumentsChecklistComponent } from './safety-documents-add/safety-documents-checklist/safety-documents-checklist.component';
 
 
 
@@ -129,6 +136,13 @@ import { SwitchingPlansChecklistComponent } from './switching-plans-new/switchin
     SwitchingPlansMultimediaComponent,
     SwitchingPlansEquipmentComponent,
     SwitchingPlansChecklistComponent,
+    SafetyDocumentsComponent,
+    SafetyDocumentsAddComponent,
+    SafetyDocumentsBasicInfoComponent,
+    SafetyDocumentsHistoryComponent,
+    SafetyDocumentsMultimediaComponent,
+    SafetyDocumentsEquipmentComponent,
+    SafetyDocumentsChecklistComponent,
   ],
   imports: [
     HttpClientModule,

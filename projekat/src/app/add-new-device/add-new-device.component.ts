@@ -19,7 +19,7 @@ export class AddNewDeviceComponent implements OnInit {
   constructor(private streetService:StreetService, private deviceService:DeviceService) { 
     streetService.getStreets().subscribe(
       (res:any)=>{
-        this.streets = res;
+        this.streets = res.retval;
       },
       err=>{
         console.log(err);

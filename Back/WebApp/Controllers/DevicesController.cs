@@ -62,7 +62,14 @@ namespace WebApp.Controllers
         public IActionResult GetDeviceByName(string name)
         {
             Device temp = data.Devices.FirstOrDefault(x => x.Name == name);
-            return Ok(new { retval = new DeviceDTO() { Name=temp.Name, Street=temp.Street.Name, Type=temp.Type} });
+            if (temp != null)
+            {
+                return Ok(new { retval = new DeviceDTO() { Name = temp.Name, Street = temp.Street.Name, Type = temp.Type } });
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         // POST api/<DevicesController>

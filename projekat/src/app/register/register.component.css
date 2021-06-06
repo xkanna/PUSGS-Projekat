@@ -84,6 +84,7 @@ input[type="register"]
     background-color: #4CAF50;
     color: white;
     cursor: pointer;  
+    
 }
 
 
@@ -100,6 +101,30 @@ input[type="register"]
     background: #07171e;
 }
 
+.registration-submit
+{
+    font-size: 14px;
+    
+    width: 25%;
+    border-radius: 10px;
+    height: 50px;
+    background-color: #ffb336;
+    color:#07171e;
+    text-align: center;
+    margin-left: 37.5%;
+    
 
 
+}
 
+.mat-form-field 
+{
+  font-size: 14px;
+  align-content: center;
+  width: 25%;
+  border-radius: 10px;
+  height: 50px;
+  background-color: #ffb336;
+  text-align: center;
+  
+}

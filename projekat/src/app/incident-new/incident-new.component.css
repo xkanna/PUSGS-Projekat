@@ -149,13 +149,14 @@ body
     text-align:center;
 
     background-color: #ffb336;
-    
+    box-shadow: 0 3px 0 #f86f1a;
+
     color: #07171e;
     cursor: pointer;
 
     border: none;
     outline:none;
-    box-shadow: 0 3px 0 #f86f1a;
+    
 
 }
 

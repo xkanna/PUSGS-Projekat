@@ -93,6 +93,7 @@ import { SafetyDocumentsHistoryComponent } from './safety-documents-add/safety-d
 import { SafetyDocumentsMultimediaComponent } from './safety-documents-add/safety-documents-multimedia/safety-documents-multimedia.component';
 import { SafetyDocumentsEquipmentComponent } from './safety-documents-add/safety-documents-equipment/safety-documents-equipment.component';
 import { SafetyDocumentsChecklistComponent } from './safety-documents-add/safety-documents-checklist/safety-documents-checklist.component';
+import { TeamsComponent } from './teams/teams.component';
 
 
 
@@ -143,6 +144,7 @@ import { SafetyDocumentsChecklistComponent } from './safety-documents-add/safety
     SafetyDocumentsMultimediaComponent,
     SafetyDocumentsEquipmentComponent,
     SafetyDocumentsChecklistComponent,
+    TeamsComponent,
   ],
   imports: [
     HttpClientModule,

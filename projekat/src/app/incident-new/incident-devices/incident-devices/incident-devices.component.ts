@@ -7,6 +7,7 @@ import { DeviceModalComponent } from 'src/app/device-modal/device-modal.componen
 import { Device } from 'src/app/models/device.model';
 import { DeviceService } from 'src/app/services/device-service/device.service';
 import { IncidentService } from 'src/app/services/incident-service/incident.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class IncidentDevicesComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private incidentService:IncidentService, private deviceService:DeviceService) {
+  constructor(public dialog: MatDialog, private incidentService:IncidentService, private deviceService:DeviceService, private toastr: ToastrService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -41,6 +42,7 @@ export class IncidentDevicesComponent implements AfterViewInit {
           this.dataSource = new MatTableDataSource(this.incidentService.currentDevices);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
+          this.toastr.success('You added a device');
         },
         err=>{
           console.log(err);

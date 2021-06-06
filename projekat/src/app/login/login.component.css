@@ -30,13 +30,21 @@ font-style: italic;
 }
 
 .incidento{
-    background-color: red;
+    background-color: #f86f1a;
     color: white;
     cursor: pointer;
-    width: 300px;
-    height: 50px;
-    border-radius: 25px;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
     font-size: 30px;
+    border: none;
+    outline:none;
+    box-shadow: 0 3px 0 #f83f1a;
+}
+
+.incidento:hover
+{
+    background-color: #f83f1a;
 }
 
 body 
@@ -66,7 +74,7 @@ body
 {   
     background: linear-gradient(to left, #f86f1a, #ba102a, #8d274a, #319197);
     margin: 0;
-    width: 800px;
+    width: 700px;
     height: auto;
     padding: 10px;
     text-align: center;
@@ -134,6 +142,10 @@ input[type="password"]
     
 }
 
+.btn.btn-facebook:hover
+{
+    background-color: #3b4498; 
+}
 .btn.btn-facebook:active
 {
     top: 3px;
@@ -154,6 +166,11 @@ input[type="password"]
     width: 100px;
     color:white;
     border-radius:10px;
+}
+
+.btn.btn-twitter:hover
+{
+    background-color: #1d6ea7;
 }
 
 .btn.btn-twitter:active
@@ -179,6 +196,11 @@ input[type="password"]
     border-radius:10px;
 }
 
+.btn.btn-google-plus:hover
+{
+    background-color: #842719;
+}
+
 .btn.btn-google-plus:active
 {
     top: 3px; outline: none; 
@@ -196,11 +218,17 @@ input[type="password"]
     box-shadow: 0 3px 0 #00497b;
     padding: 10px 90px;
     font-size: 20px;
-    width: 100px;
+    width: 105px;
     color:white;
     border-radius:10px;
     
 }
+
+.btn.btn-linkedin:hover
+{
+    background-color: #00497b;
+}
+
 .btn.btn-linkedin:active
 {
     top: 3px; outline: none; 
@@ -211,10 +239,8 @@ input[type="password"]
 /*login i deo za git*/
 
 input {
-    width: 370px;
-    padding: 10px;
-    
-
+    width: 385px;
+    padding: 10px;  
     border-radius: 10px;
     margin: 5px 0;
     opacity: 0.85;
@@ -223,11 +249,11 @@ input {
     line-height: 20px;
     text-decoration: none; /* remove underline from anchors */
     text-align:center;
+    color:white;
+
+    
     
   }
-
-
-
 
 input:hover,
 .btn:hover {
@@ -237,12 +263,18 @@ input:hover,
 
 input[type=submit] {
     background-color: #4CAF50;
+    box-shadow: 0 3px 0 #15a049;
+    width: 400px;
     color: white;
     cursor: pointer;
+
+    border: none;
+    outline:none;
+    
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #15a049;
   }
 
   /*gitHub*/
@@ -251,8 +283,23 @@ input[type=submit] {
     background-color: #b6b1b0;
     color: white;
     cursor: pointer;
+
+    border: none;
+    outline:none;
+    box-shadow: 0 3px 0 #677262;
   }
 
 input[type=submit1]:hover {
     background-color: #677262;
+    color:white;
   }
+
+#txtpassword
+{
+    color: #f86f1a;
+}
+
+#txtUserName
+{
+    color: #f86f1a;
+}

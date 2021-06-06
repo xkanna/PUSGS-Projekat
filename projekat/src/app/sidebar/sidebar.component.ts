@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  show!:boolean
   constructor() { }
 
   ngOnInit(): void {
+    if(localStorage.token){
+      this.show = true;
+    }else{
+      this.show = false;
+    }
   }
 
 }

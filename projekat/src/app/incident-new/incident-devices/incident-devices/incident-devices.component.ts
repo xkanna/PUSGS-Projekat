@@ -4,6 +4,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { DeviceModalComponent } from 'src/app/device-modal/device-modal.component';
+import { Device } from 'src/app/models/device.model';
+import { IncidentService } from 'src/app/services/incident-service/incident.service';
 
 export interface UserData {
   id: string;
@@ -30,20 +32,16 @@ const NAMES: string[] = [
   templateUrl: 'incident-devices.component.html',
 })
 export class IncidentDevicesComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  dataSource: MatTableDataSource<UserData>;
+  displayedColumns: string[] = ['name', 'type', 'street'];
+  dataSource: MatTableDataSource<Device>;
 
   selectedDeviceId!:string;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+  constructor(public dialog: MatDialog, private incidentService:IncidentService) {
+    this.dataSource = new MatTableDataSource();
   }
 
   openDialog(): void {
@@ -60,8 +58,13 @@ export class IncidentDevicesComponent implements AfterViewInit {
   
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.incidentService.getIncidents().subscribe(
+      (res:any)=>{
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
+    )
   }
 
   applyFilter(event: Event) {
@@ -72,17 +75,4 @@ export class IncidentDevicesComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
-  };
 }

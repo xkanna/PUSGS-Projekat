@@ -80,7 +80,9 @@ namespace WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Incident value)
         {
-            if (await auth.Users.FirstOrDefaultAsync(x => x.Id == User.Claims.First(x => x.Type == "UserID").Value) != null && User.Claims.First(x =>x.Type == "Role").Value != "Viewer")
+            string id = User.Claims.First(x => x.Type == "UserID").Value;
+            string role = auth.Users.FirstOrDefault(x => x.Id == id).Role;
+            if (role != "Admin" && role != "Dispatcher")
             {
                 await data.Incidents.AddAsync(value);
                 return Ok();

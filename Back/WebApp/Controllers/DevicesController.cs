@@ -32,9 +32,14 @@ namespace WebApp.Controllers
 
         // GET: api/<DevicesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ICollection<DeviceDTO> Get()
         {
-            return new string[] { "value1", "value2" };
+            List<DeviceDTO> list = new List<DeviceDTO>();
+            foreach(Device d in data.Devices)
+            {
+                list.Add(new DeviceDTO() { Name = d.Name, Street = d.Street.Name, Type = d.Type });
+            }
+            return list;
         }
 
         [HttpGet("{type}")]
@@ -50,21 +55,6 @@ namespace WebApp.Controllers
             }
             string retval = (type.Substring(0, 3)).ToUpper() + id.ToString();
             return Ok(new { newId = retval});
-            //if (type == "Breaker")
-            //{
-                
-            //}
-            //else if (type == "Disconnector")
-            //{
-
-            //}
-            //else if(type == "Fuse")
-            //{
-
-            //}else
-            //{
-
-            //}
         }
 
         // POST api/<DevicesController>

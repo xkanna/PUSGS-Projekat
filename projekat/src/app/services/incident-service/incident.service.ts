@@ -15,6 +15,7 @@ export class IncidentService {
 
   constructor(private http: HttpClient) {
     this.currentIncident = new Incident();
+    this.currentIncident.status = "Dispatched";
     this.currentCrew = -1;
    }
   
@@ -23,6 +24,10 @@ export class IncidentService {
   }
 
   addIncident(){
-    return this.http.post(this.baseUrl, this.currentIncident);
+    var incident:Incident = this.currentIncident;
+    var crew:number = this.currentCrew;
+    var devices:Device[] = this.currentDevices;
+    var body = {incident, crew, devices};
+    return this.http.post(this.baseUrl, body);
   }
 }

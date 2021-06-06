@@ -8,7 +8,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using WebApp.DTOs;
 using WebApp.Models;
+using WebApp.Models.NtoNClasses;
 using WebApp.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -32,26 +34,29 @@ namespace WebApp.Controllers
 
         // GET: api/<IncidentsController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            //await data.Incidents.AddAsync(new Incident()
-            //{
-            //    Type = "Planned",
-            //    Confirmed = true,
-            //    Status = "Dispatched",
-            //    AffectedCustomers = 5,
-            //    Cause = "Weather",
-            //    ATA = DateTime.Now,
-            //    ETA = DateTime.Now,
-            //    ETR = DateTime.Now,
-            //    Material = "Metal",
-            //    Subcause = "Lightning",
-            //    ConstructionType = "AboveGround",
-            //    Voltage = 220,
-            //    ScheduledTime = DateTime.Now
-            //});
-            //await data.SaveChangesAsync();
-            return Ok(new { list = await data.Incidents.ToListAsync() });
+            List<IncidentDataDTO> list = new List<IncidentDataDTO>();
+            foreach(Incident x in data.Incidents)
+            {
+                list.Add(new IncidentDataDTO()
+                {
+                    AffectedCustomers = x.AffectedCustomers,
+                    ATA = x.ATA,
+                    ETA = x.ETA,
+                    ETR = x.ETR,
+                    ScheduledTime = x.ScheduledTime,
+                    Cause = x.Cause,
+                    Status = x.Status,
+                    Confirmed = x.Confirmed,
+                    ConstructionType = x.ConstructionType,
+                    Material = x.Material,
+                    Voltage = x.Voltage,
+                    Type = x.Type,
+                    Subcause = x.Subcause,
+                });
+            }
+            return Ok(new { list });
         }
 
         // GET api/<IncidentsController>/5
@@ -78,13 +83,35 @@ namespace WebApp.Controllers
 
         // POST api/<IncidentsController>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Incident value)
+        public async Task<IActionResult> Post([FromBody] IncidentDTO body)
         {
             string id = User.Claims.First(x => x.Type == "UserID").Value;
             string role = auth.Users.FirstOrDefault(x => x.Id == id).Role;
-            if (role != "Admin" && role != "Dispatcher")
+            if (role == "Dispatcher")
             {
-                await data.Incidents.AddAsync(value);
+                Incident temp = new Incident()
+                {
+                    AffectedCustomers = body.Incident.AffectedCustomers,
+                    ATA = body.Incident.ATA,
+                    ETA = body.Incident.ETA,
+                    ETR = body.Incident.ETR,
+                    ScheduledTime = body.Incident.ScheduledTime,
+                    Cause = body.Incident.Cause,
+                    Status = body.Incident.Status,
+                    Confirmed = body.Incident.Confirmed,
+                    ConstructionType = body.Incident.ConstructionType,
+                    Material = body.Incident.Material,
+                    Voltage = body.Incident.Voltage,
+                    Type = body.Incident.Type,
+                    Subcause = body.Incident.Subcause,
+                    Crew = data.Crews.FirstOrDefault(x => x.Id == body.Crew)
+                };
+                foreach(DeviceDTO d in body.Devices)
+                {
+                    await data.IncidentsDevices.AddAsync(new IncidentDevice() { Incident = temp, Device = data.Devices.FirstOrDefault(x => x.Name == d.Name) }); 
+                }
+                await data.Incidents.AddAsync(temp);
+                await data.SaveChangesAsync();
                 return Ok();
             }
             else

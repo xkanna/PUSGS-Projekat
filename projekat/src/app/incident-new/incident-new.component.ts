@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Incident } from '../models/incident.model';
 import { IncidentService } from '../services/incident-service/incident.service';
 
@@ -11,7 +12,7 @@ export class IncidentNewComponent implements OnInit {
 
   incidents:Incident[] = new Array();
 
-  constructor(private service:IncidentService) {
+  constructor(private service:IncidentService, private router:Router) {
     //pull data from api, remove mock
     let temp = new Incident;
     temp.id = "WR1";
@@ -32,7 +33,10 @@ export class IncidentNewComponent implements OnInit {
   onSubmit(){
     this.service.addIncident().subscribe(
       (res:any)=>{
-        //idk dodati posle
+        this.router.navigateByUrl("/incident-browser");
+      },
+      err=>{
+        console.log(err);
       }
     )
   }

@@ -59,13 +59,18 @@
           </td>
 
           <td>
-            <mat-form-field appearance="fill">
-              <mat-label>1</mat-label>
-              <mat-select>
-                <mat-option value="option">Address1</mat-option>
-                <mat-option value="option2">Adress2</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <div><!-- 
+              <p> 
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Address</mat-label>
+                  <mat-select [(ngModel)]="selectedStreet">
+                    <mat-option *ngFor="let item of streets" [value]="item.name">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </p>-->
+            </div>
           </td>
 
         </tr>

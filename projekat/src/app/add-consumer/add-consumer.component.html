@@ -89,19 +89,22 @@
         <tr>
     
           <td>
-            <p>Location</p>
+            <p>Address</p>
           </td>
     
           <td>
-            <mat-form-field >
-              <mat-label>Location:</mat-label>
-              <mat-select>
-                <mat-option value="Switch">Switch</mat-option>
-                <mat-option value="Transformator">Transformator</mat-option>
-                <mat-option value="Fuse">Fuse</mat-option>
-                <mat-option value="Dissconector">Dissconector</mat-option>
-              </mat-select>
-            </mat-form-field>
+            <div><!-- 
+              <p> 
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Address</mat-label>
+                  <mat-select [(ngModel)]="selectedStreet">
+                    <mat-option *ngFor="let item of streets" [value]="item.name">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </p>-->
+            </div>
           </td>
     
         </tr>

@@ -19,7 +19,7 @@ body
 table {
    
     width: 700px;
-    background-color: #f86f1a;
+    background-color: #ffb336;
     margin-left: 300px;
     margin-top: 100px;
     padding:initial;
@@ -29,7 +29,7 @@ table {
 }
   
   .mat-form-field {
-    background-color: #f86f1a;
+    background-color: #ffb336;
     font-size: 14px;
     width: 500px;
     border-top-left-radius: 10px;
@@ -52,7 +52,7 @@ table {
 }
 .btn-regular {
     background: #07171e;
-    color: #f86f1a;
+    color: #ffb336;
     border: none;
     border-radius: 10px;
     display: inline-block;
@@ -70,7 +70,7 @@ table {
 .btn-regular:hover {
     color: #00202e;
     text-decoration: none;
-    background: #319197;
+    background: #f86f1a;
 }
 
 .example-container {
@@ -84,7 +84,7 @@ table {
   }
   
   .example-list {
-    border: solid 1px #f86f1a;
+    border: solid 1px #ffb336;
     min-height: 60px;
     background: f86f1a;
     border-radius: 4px;
@@ -97,7 +97,7 @@ table {
   .example-box {
     padding: 20px 10px;
     border-bottom: solid 4px #07171e;
-    color: #f86f1a;
+    color: #ffb336;
     display: flex;
     flex-direction: row;
     align-items: center;

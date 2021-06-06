@@ -18,7 +18,7 @@ body
 
 table {
     width: 500px;
-    background-color: #f86f1a;
+    background-color: #ffb336;
     margin-left: 100px;
     margin-top: 100px;
     padding:initial;
@@ -27,7 +27,7 @@ table {
 }
   
   .mat-form-field {
-    background-color: #f86f1a;
+    background-color: #ffb336;
     font-size: 14px;
     width: 1000px;
     border-top-left-radius: 10px;
@@ -50,7 +50,7 @@ table {
 }
 .btn-regular {
     background: #07171e;
-    color: #f86f1a;
+    color: #ffb336;
     border: none;
     border-radius: 10px;
     display: inline-block;
@@ -68,5 +68,5 @@ table {
 .btn-regular:hover {
     color: #00202e;
     text-decoration: none;
-    background: #319197;
+    background: #f86f1a;
 }

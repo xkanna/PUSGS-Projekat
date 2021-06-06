@@ -18,7 +18,7 @@ body
 
 .btn-regular {
   background: #07171e;
-  color: #f86f1a;
+  color: #ffb336;
   border: none;
   border-radius: 10px;
   display: inline-block;
@@ -27,7 +27,7 @@ body
   font-weight: 600;  
   margin-top: 100px;
   left:5%;
-  border-bottom:2px solid #f86f1a;
+  border-bottom:2px solid #ffb336;
   
   
 }
@@ -37,16 +37,16 @@ body
 .btn-regular:hover {
   color: #00202e;
   text-decoration: none;
-  background: #319197;
+  background: #f86f1a;
 }
 
 table {
     width: 1000px;
-    background-color: #f86f1a;
+    background-color: #ffb336;
 }
   
   .mat-form-field {
-    background-color: #f86f1a;
+    background-color: #ffb336;
     font-size: 14px;
     width: 1000px;
     border-top-left-radius: 10px;
@@ -65,7 +65,7 @@ table {
 
   mat-paginator
   {
-    background-color: #f86f1a;
+    background-color: #ffb336;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     
@@ -76,11 +76,11 @@ table {
     margin:10px;
     background-color:#00202e;
     text-align: center;
-    color: #f86f1a;
+    color: #ffb336;
     
 
 }
 
 .a{
-    color: #f86f1a;
+    color: #ffb336;
 }

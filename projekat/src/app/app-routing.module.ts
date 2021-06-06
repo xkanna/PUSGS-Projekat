@@ -51,12 +51,12 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [UnregisteredGuard] },
   { path: 'incident-browser', component: IncidentBrowserComponent, canActivate: [UnregisteredGuard] },
   { path: 'register', component: RegisterComponent},
-  //{ path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent, canActivate: [UnregisteredGuard]},
-  { path: 'calls', component: CallsComponent},
-  { path: 'add-device', component: AddDeviceComponent},
-  { path: 'add-new-device', component: AddNewDeviceComponent},
-  { path: 'add-team', component: AddTeamComponent},
+  { path: 'calls', component: CallsComponent, canActivate: [UnregisteredGuard]},
+  { path: 'add-device', component: AddDeviceComponent, canActivate:[UnregisteredGuard]},
+  { path: 'add-new-device', component: AddNewDeviceComponent, canActivate:[UnregisteredGuard, WorkerGuard]},
+  { path: 'add-team', component: AddTeamComponent, canActivate:[UnregisteredGuard, WorkerGuard]},
   { path: 'add-consumer', component: AddConsumerComponent},
   { path: 'map', component: MapComponent},
   { path: 'notifications', component: NotificationsComponent, children:[
@@ -94,7 +94,7 @@ const routes: Routes = [
     { path: 'safety-documents-equipment', component: SafetyDocumentsEquipmentComponent},
     { path: 'safety-documents-checklist', component: SafetyDocumentsChecklistComponent},
   ]},
-  { path: 'teams', component: TeamsComponent},
+  { path: 'teams', component: TeamsComponent, canActivate:[UnregisteredGuard]},
 ];
 
 @NgModule({

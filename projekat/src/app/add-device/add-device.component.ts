@@ -13,11 +13,17 @@ import { DeviceService } from '../services/device-service/device.service';
 export class AddDeviceComponent implements AfterViewInit {
   displayedColumns: string[] = ['name', 'type', 'street'];
   dataSource!: MatTableDataSource<Device>;
+  showAdd:boolean;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private service:DeviceService) {
+    if(localStorage.Role!="Dispatcher"){
+      this.showAdd = false;
+    }else{
+      this.showAdd = true;
+    }
     this.dataSource = new MatTableDataSource();
   }
 

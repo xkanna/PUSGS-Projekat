@@ -23,7 +23,7 @@ export class CallsComponent implements OnInit {
   constructor(private callService:CallService, private streetService:StreetService) {
     streetService.getStreets().subscribe(
       (res:any)=>{
-        this.streets = res;
+        this.streets = res.retval;
       },
       err=>{
         console.log(err);

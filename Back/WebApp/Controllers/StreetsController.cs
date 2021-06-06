@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApp.DTOs;
 using WebApp.Models;
 using WebApp.Repository;
 
@@ -29,8 +30,7 @@ namespace WebApp.Controllers
         }
         // GET: api/<StreetsController>
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<ActionResult<IEnumerable<Street>>> Get()
+        public IActionResult Get()
         {
             //if (data.Streets.Count() == 1)
             //{
@@ -41,7 +41,12 @@ namespace WebApp.Controllers
             //    data.Streets.Add(new Street() { Name = "Heroja Pinkija", Priority = 6 });
             //    await data.SaveChangesAsync();
             //}
-            return await data.Streets.ToListAsync();
+            List<StreetDTO> temp = new List<StreetDTO>();
+            foreach(Street s in data.Streets)
+            {
+                temp.Add(new StreetDTO() { Id = s.Id, Name = s.Name, Priority = s.Priority });
+            }
+            return Ok(new { retval = temp });
         }
 
         // GET api/<StreetsController>/5

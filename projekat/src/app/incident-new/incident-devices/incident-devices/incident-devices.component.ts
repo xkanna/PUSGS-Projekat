@@ -38,7 +38,9 @@ export class IncidentDevicesComponent implements AfterViewInit {
       this.deviceService.getDeviceByName(result).subscribe(
         (res:any)=>{
           this.incidentService.currentDevices.push(res.retval);
-          console.log(this.incidentService.currentDevices);
+          this.dataSource = new MatTableDataSource(this.incidentService.currentDevices);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         },
         err=>{
           console.log(err);

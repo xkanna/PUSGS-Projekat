@@ -25,7 +25,7 @@ body, p, h1, h2, h3, h4, h5
 .header 
 {    
     padding: 10px 40px;
-    border-bottom: 1px solid #f86f1a; /*linija*/
+    border-bottom: 1px solid #ffb336; /*linija*/
     background-color: #07171e; /*top bar*/
     position: fixed;
     width: 100%;    
@@ -44,17 +44,17 @@ body, p, h1, h2, h3, h4, h5
 .main-header__right 
 {
     float: right;
-    color: #f86f1a; /*ime*/
+    color: #ffb336; /*ime*/
 }
 
 .page-title
 {
-    color:#f86f1a;
+    color:#ffb336;
 }
 
 .logo
 {
-    color: #f86f1a;
+    color: #ffb336;
 }
 
 .main-header__left div {
@@ -72,14 +72,14 @@ body, p, h1, h2, h3, h4, h5
     left: 0;
     top: 0;
     background-color: #07171e; /*dugme u gornjem cosku*/
-    border-bottom: 1px solid #f86f1a;
+    border-bottom: 1px solid #ffb336;
     padding: 19px 19px;   
 }
 
 .toogle-sidebar:hover 
 {
     cursor: pointer;
-    background-color: #f86f1a; /*boja pozadine dugmeta prilikom prelaska preko njega*/
+    background-color: #ffb336; /*boja pozadine dugmeta prilikom prelaska preko njega*/
 }
 
 .toogle-sidebar:hover i 
@@ -89,7 +89,7 @@ body, p, h1, h2, h3, h4, h5
 
 .toogle-sidebar i 
 {
-    color: #f86f1a; /*?*/
+    color: #ffb336; /*?*/
     font-size: 25px;
 }
 
@@ -108,7 +108,7 @@ body, p, h1, h2, h3, h4, h5
 
 .main-header__account-options a 
 {
-    border: 1px solid #f86f1a; /*kruzic oko login dugmeta*/
+    border: 1px solid #ffb336; /*kruzic oko login dugmeta*/
     border-radius: 50%;
     padding: 9px 11px;
 }
@@ -125,7 +125,7 @@ body, p, h1, h2, h3, h4, h5
 
 .main-header__account-options:hover i 
 {
-    color: #f86f1a; /*?*/
+    color: #ffb336; /*?*/
 }
 
 .main-header__account 

@@ -24,7 +24,7 @@
 .sidebar-menu 
 {
     position: fixed;
-    background: linear-gradient(#f86f1a, #ba102a, #8d274a, #319197);
+    background: linear-gradient(#ffb336, #ba102a, #8d274a, #319197);
     height: 93.2vh;
     left: 0;
     top: 61px;
@@ -43,7 +43,7 @@
 
 .sidebar-menu__top__links li:hover 
 {
-    background-color: linear-gradient(#f86f1a, #ba102a, #8d274a, #319197);
+    background-color: linear-gradient(#ffb336, #ba102a, #8d274a, #319197);
    
 }
 
@@ -55,7 +55,7 @@
 
 .sidebar-menu__top__links li:hover span 
 {
-    color: #f86f1a; /*boja slova*/
+    color: #ffb336; /*boja slova*/
 } 
 
 .sidebar-menu__top__links a 
@@ -101,7 +101,7 @@
     display: inline-block;
     position: absolute;
     background-color: #07171e; /*pozadina naziva*/
-    border: 4px solid #f86f1a;
+    border: 4px solid #ffb336;
     border-left: #07171e;
     width: auto;
     padding: 15px;

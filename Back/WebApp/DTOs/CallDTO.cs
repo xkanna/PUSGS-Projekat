@@ -11,5 +11,6 @@ namespace WebApp.DTOs
         public string Comment { get; set; }
         public string Hazard { get; set; }
         public string Street { get; set; }
+        public string UserId { get; set; }
     }
 }

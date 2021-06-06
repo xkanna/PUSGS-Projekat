@@ -2,8 +2,8 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { Incident } from '../models/incident.model';
-import { IncidentService } from '../services/incident-service/incident.service';
+import { Device } from '../models/device.model';
+import { DeviceService } from '../services/device-service/device.service';
 
 @Component({
   selector: 'add-device',
@@ -11,21 +11,21 @@ import { IncidentService } from '../services/incident-service/incident.service';
   templateUrl: 'add-device.component.html',
 })
 export class AddDeviceComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'type', 'voltage', 'scheduledTime'];
-  dataSource!: MatTableDataSource<Incident>;
+  displayedColumns: string[] = ['name', 'type', 'street'];
+  dataSource!: MatTableDataSource<Device>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service:IncidentService) {
+  constructor(private service:DeviceService) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngAfterViewInit() {
-    this.service.getIncidents().subscribe(
+    this.service.getDevices().subscribe(
       (res:any)=>{
-        console.log(res.list);
-        this.dataSource = new MatTableDataSource(res.list);
+        console.log(res);
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }

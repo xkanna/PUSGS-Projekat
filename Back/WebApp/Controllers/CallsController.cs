@@ -48,13 +48,34 @@ namespace WebApp.Controllers
             return "value";
         }
 
-        //[HttpGet("{id}")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        //public ICollection<Call> GetCallsForIncidentId(int id)
-        //{
-        //    Incident temp = data.Incidents.FirstOrDefault(x => x.Id == id);
-        //    return temp.Calls;
-        //}
+        [HttpPost]
+        [Route("GetCallsForDevices")]
+        public IActionResult GetCallsForDevices(DeviceDTO [] body)
+        {
+            List<CallDTO> ret = new List<CallDTO>();
+            List<string> adrs = new List<string>();
+            foreach(DeviceDTO d in body)
+            {
+                if (!adrs.Contains(d.Street))
+                {
+                    adrs.Add(d.Street);
+                }
+            }
+            foreach (Call c in data.Calls)
+            {
+                if (adrs.Contains(c.Street.Name))
+                {
+                    User temp = auth.Users.FirstOrDefault(x => x.Id == c.UserID);
+                    string username = "Anonymous User";
+                    if (temp != null)
+                    {
+                        username = temp.FullName;
+                    }
+                    ret.Add(new CallDTO() { UserId = username, Comment = c.Comment, Hazard = c.Hazard, Reason = c.Reason, Street = c.Street.Name });
+                }
+            }
+            return Ok(new { retval = ret });
+        }
 
         // POST api/<CallsController>
         [HttpPost]

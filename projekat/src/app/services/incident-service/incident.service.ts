@@ -10,10 +10,12 @@ export class IncidentService {
 
   private baseUrl = "https://localhost:44364/api/Incidents/"
   public currentIncident!:Incident;
+  public currentCrew!:number;
   public currentDevices:Device[] = [];
 
   constructor(private http: HttpClient) {
     this.currentIncident = new Incident();
+    this.currentCrew = -1;
    }
   
   getIncidents(){

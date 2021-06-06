@@ -5,8 +5,8 @@
         <div class="column">
 
             <h2 class="registration-header">Account</h2>
-            <h2>Personal information</h2>
-            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h2>Ovde treba da ispise podatke o korisniku i da omoguci izmenu</h2>
+            <form [formGroup]="registerForm">
             
             
                 <div class="registration-first_name">
@@ -64,36 +64,34 @@
                         Please enter valid username
                     </div>
                 </div>
-
-                <div class="registration-role">
-                    <select formControlName="role" [(ngModel)]="selectedRole">
-                        <option value="" disabled selected hidden>Role</option>
-                        <option *ngFor="let r of roles" [value]="r">{{r}}</option>
-                    </select>
-                </div>
-
-                <div *ngIf="selectedRole=='Crew Member'" class="registration-crew">
-                    <select formControlName="crew" [(ngModel)]="selectedCrew">
-                        <option value="" disabled selected hidden>Crew</option>
-                        <option *ngFor="let c of crews" [value]="c.id">{{c.name}}</option>
-                    </select>
-                </div>
-
-                <div class="registration-file"> 
-                    <input type='file' (change)="onSelectFile($event)" formControlName="image">
-                    <br/>
-                    <img [src]="url" height="200"> 
-                </div>
-            
-
-                <div class="registration-submit">
-                    <button [disabled]="!registerForm.valid" type="register">Change</button>
-                    
-                </div>
-            
-            
             </form>
 
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Role</mat-label>
+                    <mat-select [(ngModel)]="selectedRole">
+                        <mat-option value="Dispatcher">Dispatcher</mat-option>
+                        <mat-option value="Crew Member">Crew Member</mat-option>
+                        <mat-option value="Worker">Worker</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+            </div>
+
+            <div *ngIf="selectedRole=='Crew Member'">
+                <mat-form-field appearance="fill">
+                <mat-label>Select Crew</mat-label>
+                <mat-select [(ngModel)]="selectedCrew">
+                    <mat-option *ngFor="let item of crews" [value]="item.id">
+                    {{item.name}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="registration-submit">
+                <button (click)="onSubmit()">Change</button>
+            </div>
+            
         </div>
         
     </div>

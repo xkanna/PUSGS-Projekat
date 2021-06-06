@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {Crew} from '../models/crew.model';
 import {RegisterUser} from '../models/registerUser.model'
+import { TeamService } from '../services/team-service/team.service';
 import {UserService} from '../services/user-service/user.service'
 
 @Component({
@@ -14,25 +15,25 @@ export class RegisterComponent implements OnInit {
 
 registerForm!: FormGroup;
 
-  roles: string[] = [
-    "Crew Member",
-    "Dispatcher",
-    "Worker"
-  ];
-
   selectedRole!:string;
-  crews: Crew[] = [
-    {id: 1, name: 'One', list:[]},
-    {id: 2, name: 'Two', list:[]}
-  ];
+  crews: Crew[] = [];
 
   selectedCrew!:Crew;
 
   url:any;
 
-  constructor(private userService: UserService, private router:Router) { }
+  constructor(private userService: UserService, private router:Router, private teamService:TeamService) { }
 
   ngOnInit(): void {
+    this.teamService.getCrews().subscribe(
+      (res:any)=>{
+        this.crews = res.list;
+        console.log(res.list);
+      },
+      err=>{
+        console.log(err);
+      }
+    )
     this.initForm();
   }
 
@@ -46,8 +47,6 @@ registerForm!: FormGroup;
       'lastName': new FormControl(''),
       'date': new FormControl(''),
       'address': new FormControl(''),
-      'role': new FormControl(''),
-      'crew': new FormControl(''),
       'image': new FormControl(null)
     });
   }
@@ -61,10 +60,13 @@ registerForm!: FormGroup;
       FullName:this.registerForm.get('firstName')?.value + " " + this.registerForm.get('lastName')?.value,
       DOB:this.registerForm.get('date')?.value,
       Street:this.registerForm.get('address')?.value,
-      Role:this.registerForm.get('role')?.value,
-      CrewID:this.registerForm.get('role')?.value === "Crew Member"? this.selectedCrew.id : -1 
+      Role:"",
+      CrewID:-1
     };
-
+    body.Role = this.selectedRole;
+    if(this.selectedRole == "Crew Member"){
+      body.CrewID = this.selectedCrew.id;
+    }
     this.userService.register(body).subscribe(
       (res:any)=>{
         this.registerForm.reset();
@@ -75,10 +77,6 @@ registerForm!: FormGroup;
         console.log(err);
       }
     );
-
-    console.log(this.registerForm.get('username')?.value);
-    console.log(this.registerForm.value);
-    console.log(this.registerForm);
   }
 
   onSelectFile(event:any) { // called each time file input changes

@@ -31,6 +31,11 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NotificationsAllComponent } from './notifications/notifications-all/notifications-all.component';
 import { SwitchingPlansComponent } from './switching-plans/switching-plans.component';
 import { SwitchingPlansNewComponent } from './switching-plans-new/switching-plans-new.component';
+import { SwitchingPlansBasicInfoComponent } from './switching-plans-new/switching-plans-basic-info/switching-plans-basic-info.component';
+import { SwitchingPlansHistoryComponent } from './switching-plans-new/switching-plans-history/switching-plans-history.component';
+import { SwitchingPlansMultimediaComponent } from './switching-plans-new/switching-plans-multimedia/switching-plans-multimedia.component';
+import { SwitchingPlansEquipmentComponent } from './switching-plans-new/switching-plans-equipment/switching-plans-equipment.component';
+import { SwitchingPlansChecklistComponent } from './switching-plans-new/switching-plans-checklist/switching-plans-checklist.component';
 
 
 const routes: Routes = [
@@ -67,6 +72,11 @@ const routes: Routes = [
   ]},
   { path: 'switching-plans', component: SwitchingPlansComponent},
   { path: 'switching-plans-new', component: SwitchingPlansNewComponent, children: [
+    { path: 'switching-plans-basic-info', component: SwitchingPlansBasicInfoComponent},
+    { path: 'switching-plans-history', component: SwitchingPlansHistoryComponent},
+    { path: 'switching-plans-multimedia', component: SwitchingPlansMultimediaComponent},
+    { path: 'switching-plans-equipment', component: SwitchingPlansEquipmentComponent},
+    { path: 'switching-plans-checklist', component: SwitchingPlansChecklistComponent},
   ]},
 ];
 
